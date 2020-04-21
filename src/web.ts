@@ -13,6 +13,10 @@ export class NFCPluginWeb extends WebPlugin implements NFCPluginPlugin {
     console.log('ECHO', options);
     return options;
   }
+
+  async testEvent(): Promise<void> {
+    console.log("listen test event success...");
+  }
 }
 
 const NFCPlugin = new NFCPluginWeb();
