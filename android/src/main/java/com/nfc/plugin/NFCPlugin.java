@@ -1,5 +1,7 @@
 package com.nfc.plugin;
 
+import android.content.IntentFilter;
+
 import com.getcapacitor.JSObject;
 import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
@@ -8,6 +10,10 @@ import com.getcapacitor.PluginMethod;
 
 @NativePlugin()
 public class NFCPlugin extends Plugin {
+
+    private MyFirstReceiver myFirstReceiver;
+    public static final String BROADCAST_ACTION_DISC = "com.nfc.plugin.MyFirstReceiver";
+
 
     @PluginMethod()
     public void echo(PluginCall call) {
@@ -48,6 +54,11 @@ public class NFCPlugin extends Plugin {
         notifyListeners("beginWriteNFC", ret,true);
         // send has written NFC info end event
         notifyListeners("writeNFCResult", ret,true);
+
+        myFirstReceiver = new MyFirstReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(BROADCAST_ACTION_DISC);
+        getContext().registerReceiver(myFirstReceiver, intentFilter);
     }
 
 
