@@ -8,6 +8,10 @@ export class NFCPluginWeb extends WebPlugin implements NFCPluginPlugin {
       platforms: ['web']
     });
   }
+  async sendTaskInfo(options: { taskInfo: Object; }): Promise<Object> {
+    console.log('Send Task Info Success',options);
+    return options;
+  }
 
   async echo(options: { value: string }): Promise<{value: string}> {
     console.log('ECHO', options);

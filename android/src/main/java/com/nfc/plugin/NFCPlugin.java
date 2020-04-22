@@ -24,12 +24,31 @@ public class NFCPlugin extends Plugin {
         call.success();
     }
 
+    /**
+     * send task info message to NFC
+     * @param call
+     */
+    @PluginMethod()
+    public void sendTaskInfo(PluginCall call) {
+        String value = call.getString("taskInfo");
+        JSObject ret = new JSObject();
+        ret.put("taskInfo", value);
+        call.success(ret);
+    }
+
     @Override
     protected void handleOnStart() {
         super.handleOnStart();
         System.out.println("AwesomePlugin----start");
         JSObject ret = new JSObject();
         ret.put("value", "some value");
-        notifyListeners("readNFC", ret);
+        // send read NFC result event
+        notifyListeners("readNFCResult", ret,true);
+        // begin write NFC info event
+        notifyListeners("beginWriteNFC", ret,true);
+        // send has written NFC info end event
+        notifyListeners("writeNFCResult", ret,true);
     }
+
+
 }
