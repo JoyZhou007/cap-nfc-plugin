@@ -1,5 +1,6 @@
+import { OptionsRequiredError } from './errors';
 import { WebPlugin } from '@capacitor/core';
-import { NFCPluginPlugin } from './definitions';
+import { NFCPluginPlugin, TaskInfo } from './definitions';
 
 export class NFCPluginWeb extends WebPlugin implements NFCPluginPlugin {
   constructor() {
@@ -7,6 +8,12 @@ export class NFCPluginWeb extends WebPlugin implements NFCPluginPlugin {
       name: 'NFCPlugin',
       platforms: ['web']
     });
+  }
+  async sendTaskInfo(options: TaskInfo): Promise<TaskInfo> {
+    if(!options){
+      return Promise.reject(new OptionsRequiredError());
+    }
+    return Promise.resolve(options);
   }
 
   async echo(options: { value: string }): Promise<{value: string}> {
