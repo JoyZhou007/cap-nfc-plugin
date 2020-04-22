@@ -15,7 +15,7 @@ public class NFCPlugin extends Plugin {
 
         JSObject ret = new JSObject();
         ret.put("value", value);
-        call.success(ret);
+        call.resolve(ret);
     }
 
     @PluginMethod()
@@ -33,7 +33,7 @@ public class NFCPlugin extends Plugin {
         String value = call.getString("taskInfo");
         JSObject ret = new JSObject();
         ret.put("taskInfo", value);
-        call.success(ret);
+        call.resolve(ret);
     }
 
     @Override
