@@ -1,23 +1,23 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-4:14
-INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-4:14
-INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-4:14
-INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-4:14
-INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-4:14
-INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-4:14
-INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-4:14
+ADDED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
+INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
+INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
+INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
+INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
+INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
+INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
 	package
 		ADDED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:3:7-44
 		INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml
 		INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-		ADDED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-4:14
+		ADDED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
 		INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-		ADDED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-4:14
+		ADDED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
 		INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:13-71
