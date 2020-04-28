@@ -54,7 +54,7 @@ just running command
     
 ##  Upgrade Plugin
 ---
-1. `delete current project node_modules folder and android folder`  
+1. `delete current project's node_modules folder and android folder`  
 2. `npm i`
 3. `npm i cap-nfc-plugin@latest`
 4. `npx cap add android`
@@ -75,7 +75,23 @@ just running command
             }});
           }
         }
-8. 现在可以打包出来啦，Finished
+8. 找到`app/manifests/AndroidManifest.xml`文件，将`android:usesCleartextTraffic="true"`添加到`application`中
+
+        <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:usesCleartextTraffic="true"
+            android:theme="@style/AppTheme">
+            
+9. 现在可以打包出来啦，Finished
+
+## Debugger In Chrome
+----
+open url `chrome://inspect/#devices` in chrome, you can find device in it
+
 
 
 
