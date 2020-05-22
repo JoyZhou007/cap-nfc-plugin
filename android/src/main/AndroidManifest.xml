@@ -1,6 +1,17 @@
 
   <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.nfc.plugin.capnfcplugin">
+    <uses-feature android:name="android.hardware.usb.host" />
+    <!-- Include next permission if you want to allow UIL to cache images on SD card -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
   </manifest>
   
