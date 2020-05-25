@@ -1,14 +1,14 @@
 /***********************************************************
-Copyright(C), USC company
-FileName	: ProductInfor.java
-Author		: Guoyuankai
-Date	  	: 2016/12/02
-Description	: 
-Version		: V1.0
-History		: 
---------------------------------
-2016/12/02: created
-***********************************************************/
+ Copyright(C), USC company
+ FileName	: ProductInfor.java
+ Author		: Guoyuankai
+ Date	  	: 2016/12/02
+ Description	:
+ Version		: V1.0
+ History		:
+ --------------------------------
+ 2016/12/02: created
+ ***********************************************************/
 
 package com.nfc.plugin;
 
@@ -22,11 +22,11 @@ public class ProductInfor {
 	String price;               //�۸�
 	String ean13Code;          //��ά��
 	String qrCode;
-	String lcdInch;	
-	
+	String lcdInch;
+
 
 	public ProductInfor(String productName, String unit, String specification,
-			String grade, String field, String price,String ean13Code, String qrCode,String lcdInch) {
+						String grade, String field, String price,String ean13Code, String qrCode,String lcdInch) {
 		super();
 		this.productName = productName;
 		this.unit = unit;
@@ -141,5 +141,5 @@ public class ProductInfor {
 
 
 
-	
+
 }

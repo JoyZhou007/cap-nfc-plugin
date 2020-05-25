@@ -1,7 +1,15 @@
 package com.nfc.plugin;
 
-import android.content.IntentFilter;
+import android.Manifest;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.Toast;
 
+import com.example.LHCZ_Ind.ReaderTransferApi;
+import com.example.LHCZ_Ind.utils.BmpParse29;
+import com.example.LHCZ_Ind.utils.BmpUtils29;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
@@ -28,12 +36,12 @@ public class NFCPlugin extends Plugin {
     private static boolean UPDATE_ONLY_TAG_LCD_FLAG = false;
     private static boolean UPDATA_TAG_LCD_AND_WRITE_NDEF_FLAG = false;
     private static boolean QUICK_CLEAR_UPDATA_TAG_LCD_AND_WRITE_NDEF_FLAG = false;
-    private static boolean READ_NDEF_AFTER_UPDATE_TAG_LCD_FLAG = false;
+    private static boolean READ_NDEF_AFTER_UPDATE_TAG_LCD_FLAG = true;
 
 
     private boolean invert = false;
     private boolean HighSpeed = false;
-    private String strNdef="11111111111111111";
+    private String strNdef="";
 
     private ReaderTransferApi readerApi;
 
@@ -66,6 +74,40 @@ public class NFCPlugin extends Plugin {
         JSObject ret = new JSObject();
         ret.put("value", value);
         call.resolve(ret);
+
+        //首先判断tag是否在读卡器上面，在读卡器上面就可以手动刷，否则提示标签不在读卡器上面
+        if(readerApi.checkCardOnReader()) {
+            System.out.println("NFCPlugin----quickClrUpdateWriteNdefTag");
+            Toast.makeText(getContext(), "NFCPlugin----quickClrUpdateWriteNdefTag",Toast.LENGTH_SHORT).show();
+            //手动刷屏test
+            readerApi.quickClrUpdateWriteNdefTag(NFTData, NFTData.length, 0, HighSpeed, invert, strNdef);
+
+//        StringBuffer strBufNdef = new StringBuffer();
+//        int rets = readerApi.readNdef(strBufNdef);
+//        if(rets == 0)
+//        {
+//          Toast.makeText(getContext(), "111111111="+strBufNdef ,Toast.LENGTH_LONG).show();
+//        }
+//        else if(rets == 1)
+//        {
+//          Toast.makeText(getContext(), "Symbol is Off!", Toast.LENGTH_LONG).show();
+//        }
+//        else if(rets == 3)
+//        {
+//          Toast.makeText(getContext(), "The tag Ndef data exceed the l004 bytes limit!", Toast.LENGTH_LONG).show();
+//        }
+//        else if(rets == 4)
+//        {
+//          Toast.makeText(getContext(), "不是ndef数据",Toast.LENGTH_LONG).show();
+//        }
+//        System.out.println("NFCPlugin----ret=="+rets);
+//
+        }else{
+            System.out.println("NFCPlugin----Tag isn't on the reader!");
+            Toast.makeText(getContext(), "Tag isn't on the reader!",Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     @PluginMethod()
@@ -85,24 +127,6 @@ public class NFCPlugin extends Plugin {
         ret.put("taskInfo", value);
 
         System.out.println("sendTaskInfo----start");
-        if(value!=null){
-//            int res = readerApi.writeNdefData(value);
-//            if (res == 0) {
-//                wriNdefInfor = "写NDEF数据成功！";
-//                ret.put("writeResult", 0);
-//            } else if (res == 1) {
-//                wriNdefInfor = "写NDEF数据失败！";
-//                ret.put("writeResult", 1);
-//            } else if (res == 2) {
-//                wriNdefInfor = "写NDEF数据超出1004个字节数据范围！";
-//                ret.put("writeResult", 2);
-//            }
-//            Toast.makeText(getContext(), wriNdefInfor,
-//                    Toast.LENGTH_LONG).show();
-//
-//            notifyListeners("writeNFCResult", ret,true);
-        }
-
         call.resolve(ret);
 
     }
@@ -121,12 +145,10 @@ public class NFCPlugin extends Plugin {
 //        notifyListeners("writeNFCResult", ret,true);
 
         initData();
-
-
     }
 
 
-    private initData(){
+    private void initData(){
         ProductInfor productInfor = new ProductInfor(proName, unit, spec,
                 grade, field, price, barCode, qrCode, lcdInch);
 
@@ -136,7 +158,7 @@ public class NFCPlugin extends Plugin {
         strNdef = proName + "\r\n" + unit + "\r\n" + spec + "\r\n" + grade
                 + "\r\n" + price + "\r\n" + barCode + "\r\n" + field + "\r\n"
                 + qrCode + "\r\n" + lcdInch;
-
+        System.out.println("NFCPlugin----strNdef="+strNdef);
         if (mBackgroundBitmap == null) {
             mBackgroundBitmap = Bitmap.createBitmap(screenWidth, screenHeight,
                     Bitmap.Config.RGB_565);
@@ -161,61 +183,42 @@ public class NFCPlugin extends Plugin {
         NFTData = HalLcd_SetRAMValue(NFTData, 4736);
 
 
+
         // 创建�??个负责更新进度条的Handler
         mHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                if (READ_NDEF_AFTER_UPDATE_TAG_LCD_FLAG
-                        && !READ_ONLY_NDEF_FLAG) {
-                    System.out.println("NFCPlugin----1111");
-
-                    StringBuffer strBufNdef = new StringBuffer();
-                    int ret = readerApi.readNdef(strBufNdef);
-                    if(ret == 0)
-                    {
-                        Toast.makeText(getContext(), strBufNdef ,Toast.LENGTH_LONG).show();
+                if (msg.what == ReaderTransferApi.PLAY_COMPLETE_SOUND_CMD) {
+                    if (READ_NDEF_AFTER_UPDATE_TAG_LCD_FLAG
+                            && !READ_ONLY_NDEF_FLAG) {
+                        System.out.println("NFCPlugin----1111");
+                        StringBuffer strBufNdef = new StringBuffer();
+                        int ret = readerApi.readNdef(strBufNdef);
+                        if (ret == 0) {
+                            Toast.makeText(getContext(), strBufNdef, Toast.LENGTH_LONG).show();
+                        } else if (ret == 1) {
+                            Toast.makeText(getContext(), "Symbol is Off!", Toast.LENGTH_LONG).show();
+                        } else if (ret == 3) {
+                            Toast.makeText(getContext(), "The tag Ndef data exceed the l004 bytes limit!", Toast.LENGTH_LONG).show();
+                        } else if (ret == 4) {
+                            Toast.makeText(getContext(), "不是ndef数据", Toast.LENGTH_LONG).show();
+                        }
+                        System.out.println("NFCPlugin----ret==" + ret);
+                        Toast.makeText(getContext(), "ret=" + ret, Toast.LENGTH_LONG).show();
                     }
-                    else if(ret == 1)
-                    {
-                        Toast.makeText(getContext(), "Symbol is Off!", Toast.LENGTH_LONG).show();
-                    }
-                    else if(ret == 3)
-                    {
-                        Toast.makeText(getContext(), "The tag Ndef data exceed the l004 bytes limit!", Toast.LENGTH_LONG).show();
-                    }
-                    else if(ret == 4)
-                    {
-                        Toast.makeText(getContext(), "不是ndef数据",Toast.LENGTH_LONG).show();
-                    }
-
-                    System.out.println("NFCPlugin----ret=="+ret);
+//               runOnUiThread(new Runnable() {
+//
+//                    @Override
+//                    public void run() {
+//                        // TODO Auto-generated method
+//                        Toast.makeText(getContext(),"发送完成!刷屏花费时间="+ readerApi.TotalTime + "ms", Toast.LENGTH_LONG).show();
+//
+//                    }
+//                });
                 }
-                // playCompleteSound2();
-                runOnUiThread(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        // TODO Auto-generated method
-                        Toast.makeText(getContext(),"发送完成!刷屏花费时间="+ readerApi.TotalTime + "ms", Toast.LENGTH_LONG).show();
-
-                    }
-                });
-
             }
         };
         readerApi = new ReaderTransferApi(getContext(), mHandler);
-
-        //首先判断tag是否在读卡器上面，在读卡器上面就可以手动刷，否则提示标签不在读卡器上面
-        if(readerApi.checkCardOnReader()) {
-            System.out.println("NFCPlugin----quickClrUpdateWriteNdefTag");
-            //手动刷屏test
-            readerApi.quickClrUpdateWriteNdefTag(NFTData,
-                    NFTData.length, 0, HighSpeed, invert, strNdef);
-            READ_NDEF_AFTER_UPDATE_TAG_LCD_FLAG = true;
-        }else{
-            System.out.println("NFCPlugin----Tag isn't on the reader!");
-            Toast.makeText(getContext(), "Tag isn't on the reader!",Toast.LENGTH_SHORT).show();
-        }
     }
 
 

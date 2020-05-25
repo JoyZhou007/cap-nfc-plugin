@@ -1,14 +1,14 @@
 /***********************************************************
-Copyright(C), USC company
-FileName	: TagPriceView.java
-Author		: Guoyuankai
-Date	  	: 2016/12/02
-Description	: 
-Version		: V1.0
-History		: 
---------------------------------
-2016/12/01: created
-2017/5/12:  add china version view 
+ Copyright(C), USC company
+ FileName	: TagPriceView.java
+ Author		: Guoyuankai
+ Date	  	: 2016/12/02
+ Description	:
+ Version		: V1.0
+ History		:
+ --------------------------------
+ 2016/12/01: created
+ 2017/5/12:  add china version view
  ***********************************************************/
 
 package com.nfc.plugin;
@@ -26,10 +26,7 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.example.LHCZ_Ind.domain.ProductInfor;
 import com.example.LHCZ_Ind.utils.EAN13;
-import com.example.LHCZ_Ind.R;
-//import com.example.tagview.utils.EAN13CodeBuilder;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
@@ -82,7 +79,7 @@ public class TagPriceView extends View {
 		Bitmap bitmap = code.getBitmap(245, 65);
 		return bitmap;
 	}
-	
+
 	private void drawTagPicCh213(Canvas paramCanvas) {
 
 		int leftEdge = 8;
@@ -118,20 +115,18 @@ public class TagPriceView extends View {
 		this.paint.setColor(Color.BLACK);
 		this.paint.setTextSize(16);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.unit) + ":",
+				"单位:",
 				leftEdge, yBegin, this.paint);
-		int i1 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.unit) + ":");
+		int i1 = (int) this.paint.measureText("单位:");
 
 		this.paint.setTextSize(15);
 		paramCanvas.drawText(this.proInfo.getUnit().toString(), leftEdge + i1,
 				yBegin, this.paint);
 		this.paint.setTextSize(16);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.spec) + ":",
+				"规格:",
 				leftEdge + 80, yBegin, this.paint);
-		int i2 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.spec) + ":");
+		int i2 = (int) this.paint.measureText( "规格:");
 		// font = Typeface.createFromAsset(getContext().getAssets(),
 		// "fonts/Roboto-Regular.ttf");
 		// this.paint.setTypeface(font);
@@ -141,20 +136,18 @@ public class TagPriceView extends View {
 		// "fonts/kaiti.ttf");
 		// this.paint.setTypeface(font);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.grade) + ":",
+				"等级:",
 				leftEdge, yBegin + yStep, this.paint);
-		int i3 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.grade) + ":");
+		int i3 = (int) this.paint.measureText( "等级:");
 		this.paint.setTextSize(15);
 		paramCanvas.drawText(this.proInfo.getGrade().toString(), leftEdge + i3,
 				yBegin + yStep, this.paint);
 
 		this.paint.setTextSize(16);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.field) + ":",
+				"产地:",
 				leftEdge + 79, yBegin + yStep, this.paint);
-		int i4 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.field) + ":");
+		int i4 = (int) this.paint.measureText("产地:");
 		paramCanvas.drawText(this.proInfo.getField().toString(), leftEdge + i4
 				+ 80, yBegin + yStep, this.paint);
 
@@ -210,7 +203,7 @@ public class TagPriceView extends View {
 
 	}
 
-	
+
 	public void drawTagPicCh213_2_BWR(Canvas paramCanvas) {
 
 		int leftEdge = 6;
@@ -249,20 +242,18 @@ public class TagPriceView extends View {
 		this.paint.setColor(Color.BLACK);
 		this.paint.setTextSize(13);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.unit) + ":",
+				"单位:",
 				leftEdge, yBegin, this.paint);
-		int i1 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.unit) + ":");
+		int i1 = (int) this.paint.measureText("单位:");
 
 		// this.paint.setTextSize(11);
 		paramCanvas.drawText(this.proInfo.getUnit().toString(), leftEdge + i1 + 2,
 				yBegin, this.paint);
 		//this.paint.setTextSize(12);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.spec) + ":",
+				"规格:",
 				leftEdge + 74, yBegin, this.paint);
-		int i2 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.spec) + ":");
+		int i2 = (int) this.paint.measureText("规格:");
 		// font = Typeface.createFromAsset(getContext().getAssets(),
 		// "fonts/Roboto-Regular.ttf");
 		// this.paint.setTypeface(font);
@@ -272,20 +263,18 @@ public class TagPriceView extends View {
 		// "fonts/kaiti.ttf");
 		// this.paint.setTypeface(font);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.grade) + ":",
+				"等级:",
 				leftEdge, yBegin + yStep, this.paint);
-		int i3 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.grade) + ":");
+		int i3 = (int) this.paint.measureText("等级:");
 		// this.paint.setTextSize(11);
 		paramCanvas.drawText(this.proInfo.getGrade().toString(), leftEdge + i3 + 2,
 				yBegin + yStep, this.paint);
 
 		//this.paint.setTextSize(12);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.field) + ":",
+				"产地:",
 				leftEdge + 74, yBegin + yStep, this.paint);
-		int i4 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.field) + ":");
+		int i4 = (int) this.paint.measureText( "产地:");
 		paramCanvas.drawText(this.proInfo.getField().toString(), leftEdge + i4
 				+ 75, yBegin + yStep, this.paint);
 
@@ -342,8 +331,8 @@ public class TagPriceView extends View {
 	}
 
 	public void drawTagPicCh213_2_BW(Canvas paramCanvas) {
-		
-		
+
+
 
 
 		int leftEdge = 6;
@@ -363,7 +352,7 @@ public class TagPriceView extends View {
 
 		paramCanvas.drawColor(Color.WHITE);
 		font = Typeface.createFromAsset(getContext().getAssets(),
-		"fonts/lishu.ttf");
+				"fonts/lishu.ttf");
 		this.paint.setTypeface(font);
 		this.paint.setFakeBoldText(true);
 //		paramCanvas.save();
@@ -383,20 +372,18 @@ public class TagPriceView extends View {
 		this.paint.setColor(Color.BLACK);
 		this.paint.setTextSize(13);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.unit) + ":",
+				"单位:",
 				leftEdge, yBegin, this.paint);
-		int i1 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.unit) + ":");
+		int i1 = (int) this.paint.measureText("单位:");
 
 		// this.paint.setTextSize(11);
 		paramCanvas.drawText(this.proInfo.getUnit().toString(), leftEdge + i1 + 2,
 				yBegin, this.paint);
 		//this.paint.setTextSize(12);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.spec) + ":",
+				"规格:",
 				leftEdge + 74, yBegin, this.paint);
-		int i2 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.spec) + ":");
+		int i2 = (int) this.paint.measureText("规格:");
 		// font = Typeface.createFromAsset(getContext().getAssets(),
 		// "fonts/Roboto-Regular.ttf");
 		// this.paint.setTypeface(font);
@@ -406,20 +393,18 @@ public class TagPriceView extends View {
 		// "fonts/kaiti.ttf");
 		// this.paint.setTypeface(font);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.grade) + ":",
+				"等级:",
 				leftEdge, yBegin + yStep, this.paint);
-		int i3 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.grade) + ":");
+		int i3 = (int) this.paint.measureText("等级:");
 		// this.paint.setTextSize(11);
 		paramCanvas.drawText(this.proInfo.getGrade().toString(), leftEdge + i3 + 2,
 				yBegin + yStep, this.paint);
 
 		//this.paint.setTextSize(12);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.field) + ":",
+				"产地:",
 				leftEdge + 75, yBegin + yStep, this.paint);
-		int i4 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.field) + ":");
+		int i4 = (int) this.paint.measureText("产地:");
 		paramCanvas.drawText(this.proInfo.getField().toString(), leftEdge + i4
 				+ 75, yBegin + yStep, this.paint);
 
@@ -446,9 +431,9 @@ public class TagPriceView extends View {
 			paramCanvas.restore();
 		}
 
-	
-		
-		
+
+
+
 	}
 
 	public void drawTagPicCh213_2_R(Canvas paramCanvas) {
@@ -478,7 +463,7 @@ public class TagPriceView extends View {
 		paramCanvas.drawText(this.proInfo.getProductName().toString(),
 				leftEdge, 17, this.paint);
 		paramCanvas.restore();
-		
+
 		font = Typeface.createFromAsset(getContext().getAssets(),
 				"fonts/APARAJB.TTF");
 		this.paint.setTypeface(font);
@@ -509,10 +494,10 @@ public class TagPriceView extends View {
 		}
 
 	}
-	
-	
-	
-	
+
+
+
+
 	private void drawTagPicCh29(Canvas paramCanvas) {
 		// (14 + 6);
 		/*
@@ -563,10 +548,9 @@ public class TagPriceView extends View {
 		this.paint.setColor(Color.BLACK);
 		this.paint.setTextSize(16);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.unit) + ":",
+				"单位:",
 				leftEdge, yBegin, this.paint);
-		int i1 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.unit) + ":");
+		int i1 = (int) this.paint.measureText("单位:");
 		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
 		// this.paint.setTypeface(font);
 		this.paint.setTextSize(15);
@@ -574,22 +558,20 @@ public class TagPriceView extends View {
 				yBegin, this.paint);
 		this.paint.setTextSize(16);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.spec) + ":",
+				"规格:",
 				leftEdge + 110, yBegin, this.paint);
-		int i2 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.spec) + ":");
+		int i2 = (int) this.paint.measureText("规格:");
 
-		
+
 		paramCanvas.drawText(this.proInfo.getSpecification().toString(),
 				leftEdge + i2 + 110, yBegin, this.paint);
 		// font = Typeface.createFromAsset(getContext().getAssets(),
 		// "fonts/kaiti.ttf");
 		// this.paint.setTypeface(font);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.grade) + ":",
+				"等级:",
 				leftEdge, yBegin + yStep, this.paint);
-		int i3 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.grade) + ":");
+		int i3 = (int) this.paint.measureText("等级:");
 		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
 		// this.paint.setTypeface(font);
 		this.paint.setTextSize(15);
@@ -601,10 +583,9 @@ public class TagPriceView extends View {
 
 		this.paint.setTextSize(16);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.field) + ":",
+				"产地:",
 				leftEdge + 110, yBegin + yStep, this.paint);
-		int i4 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.field) + ":");
+		int i4 = (int) this.paint.measureText("产地:");
 		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
 		// this.paint.setTypeface(font);
 		// this.paint.setTextSize(15);
@@ -629,38 +610,38 @@ public class TagPriceView extends View {
 		int priLength = this.proInfo.getPrice().length();
 		this.paint.setTextSize(55);// 133
 		// this.paint.setTextSize(70);//133
-		if (priPos != -1) 
+		if (priPos != -1)
 		{
 			// this.paint.setTextSize(133);//31
 			// font = Typeface.create(Typeface.SANS_SERIF,
 			// Typeface.BOLD_ITALIC);
 			// this.paint.setTypeface(font);
-            
+
 			String priceL = "";
 			String priceR = "";
 			priceL = this.proInfo.getPrice().toString()
 					.substring(0, priPos + 1).trim();
 			priceR = this.proInfo.getPrice().toString()
 					.substring(priPos + 1, priLength).trim();
-			
+
 			int mesuPrice = (int) this.paint.measureText(this.proInfo.getPrice().toString());
 			int i5;
-            if(mesuPrice < 143)
-            {
-			 paramCanvas.drawText(priceL, xPriceFlag, yPriceFlag, this.paint);
-			 i5 = (int) this.paint.measureText(priceL);
-			 this.paint.setTextSize(45);// 108
-			 paramCanvas.drawText(priceR, xPriceFlag + i5, yPriceFlag - 9,
-					this.paint);
-            }else{
-             paramCanvas.drawText(priceL, leftEdge, yPriceFlag, this.paint);
-   			 i5 = (int) this.paint.measureText(priceL);
-   			 this.paint.setTextSize(45);// 108
-   			 paramCanvas.drawText(priceR, leftEdge + i5, yPriceFlag - 9,
-   					this.paint);	
-            	
-            }
-            
+			if(mesuPrice < 143)
+			{
+				paramCanvas.drawText(priceL, xPriceFlag, yPriceFlag, this.paint);
+				i5 = (int) this.paint.measureText(priceL);
+				this.paint.setTextSize(45);// 108
+				paramCanvas.drawText(priceR, xPriceFlag + i5, yPriceFlag - 9,
+						this.paint);
+			}else{
+				paramCanvas.drawText(priceL, leftEdge, yPriceFlag, this.paint);
+				i5 = (int) this.paint.measureText(priceL);
+				this.paint.setTextSize(45);// 108
+				paramCanvas.drawText(priceR, leftEdge + i5, yPriceFlag - 9,
+						this.paint);
+
+			}
+
 
 		}
 
@@ -747,10 +728,9 @@ public class TagPriceView extends View {
 		this.paint.setColor(Color.BLACK);
 		this.paint.setTextSize(16);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.unit) + ":",
+				"单位:",
 				leftEdge, yBegin, this.paint);
-		int i1 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.unit) + ":");
+		int i1 = (int) this.paint.measureText("单位:");
 		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
 		// this.paint.setTypeface(font);
 		this.paint.setTextSize(15);
@@ -758,10 +738,9 @@ public class TagPriceView extends View {
 				yBegin, this.paint);
 		this.paint.setTextSize(16);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.spec) + ":",
+				"规格:",
 				leftEdge + 120, yBegin, this.paint);
-		int i2 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.spec) + ":");
+		int i2 = (int) this.paint.measureText("规格:");
 		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
 		// this.paint.setTypeface(font);
 		// this.paint.setTextSize(18);
@@ -774,10 +753,9 @@ public class TagPriceView extends View {
 		// "fonts/kaiti.ttf");
 		// this.paint.setTypeface(font);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.grade) + ":",
+				"等级:",
 				leftEdge, yBegin + yStep, this.paint);
-		int i3 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.grade) + ":");
+		int i3 = (int) this.paint.measureText("等级:");
 		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
 		// this.paint.setTypeface(font);
 		this.paint.setTextSize(15);
@@ -789,10 +767,9 @@ public class TagPriceView extends View {
 
 		this.paint.setTextSize(16);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.field) + ":",
+				"产地:",
 				leftEdge + 120, yBegin + yStep, this.paint);
-		int i4 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.field) + ":");
+		int i4 = (int) this.paint.measureText("产地:");
 		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
 		// this.paint.setTypeface(font);
 		// this.paint.setTextSize(15);
@@ -924,10 +901,9 @@ public class TagPriceView extends View {
 		this.paint.setColor(Color.BLACK);
 		this.paint.setTextSize(16);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.unit) + ":",
+				"单位:",
 				leftEdge, yBegin, this.paint);
-		int i1 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.unit) + ":");
+		int i1 = (int) this.paint.measureText("单位:");
 		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
 		// this.paint.setTypeface(font);
 		this.paint.setTextSize(15);
@@ -935,10 +911,9 @@ public class TagPriceView extends View {
 				yBegin, this.paint);
 		this.paint.setTextSize(16);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.spec) + ":",
+				"规格:",
 				leftEdge + 120, yBegin, this.paint);
-		int i2 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.spec) + ":");
+		int i2 = (int) this.paint.measureText("规格:");
 		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
 		// this.paint.setTypeface(font);
 		// this.paint.setTextSize(18);
@@ -951,10 +926,9 @@ public class TagPriceView extends View {
 		// "fonts/kaiti.ttf");
 		// this.paint.setTypeface(font);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.grade) + ":",
+				"等级:",
 				leftEdge, yBegin + yStep, this.paint);
-		int i3 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.grade) + ":");
+		int i3 = (int) this.paint.measureText("等级:");
 		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
 		// this.paint.setTypeface(font);
 		this.paint.setTextSize(15);
@@ -966,10 +940,9 @@ public class TagPriceView extends View {
 
 		this.paint.setTextSize(16);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.field) + ":",
+				"产地:",
 				leftEdge + 120, yBegin + yStep, this.paint);
-		int i4 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.field) + ":");
+		int i4 = (int) this.paint.measureText("产地:");
 		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
 		// this.paint.setTypeface(font);
 		// this.paint.setTextSize(15);
@@ -1081,14 +1054,14 @@ public class TagPriceView extends View {
 
 	}
 
-	
-	
-	
-	
-	
+
+
+
+
+
 	private void drawTagPicCh42(Canvas paramCanvas)
-	  {
-	  //  (14 + 6);
+	{
+		//  (14 + 6);
 	  /*  int i = 2 + 34;
 	    int j = 2 + 50;
 	    int k = 2 + 66;
@@ -1096,28 +1069,28 @@ public class TagPriceView extends View {
 	    int n = 2 + 98;
 	    */
 
-	    
-	    int leftEdge = 10;
-	    float yBegin = 76;
-	    float yStep = 34;//36;
-	    
-	    float xPriceFlag = leftEdge+80;
-	    float yPriceFlag = yBegin + 3*yStep+110;
-	    	    
-	    float yqrCode = 40;
-	    float xqrCode = leftEdge + 260;
-	    
-	    float ybarCode = 153;
-	    float xbarCode = leftEdge + 260;
-	   
+
+		int leftEdge = 10;
+		float yBegin = 76;
+		float yStep = 34;//36;
+
+		float xPriceFlag = leftEdge+80;
+		float yPriceFlag = yBegin + 3*yStep+110;
+
+		float yqrCode = 40;
+		float xqrCode = leftEdge + 260;
+
+		float ybarCode = 153;
+		float xbarCode = leftEdge + 260;
+
 		float lPriceSize = 0;
 		float rPriceSize = 0;
-	    
-	  //  paramCanvas.setBitmap(bitmap);
-	    paramCanvas.clipRect(new Rect(0, 0, 400, 400));
-	   // paramCanvas.clipRect(new Rect(0, 0, 256, 122));
-	    paramCanvas.drawColor(Color.WHITE);
-	    
+
+		//  paramCanvas.setBitmap(bitmap);
+		paramCanvas.clipRect(new Rect(0, 0, 400, 400));
+		// paramCanvas.clipRect(new Rect(0, 0, 256, 122));
+		paramCanvas.drawColor(Color.WHITE);
+
 		if (!this.proInfo.getQrCode().toString().isEmpty()) {
 			paramCanvas.save();
 
@@ -1130,64 +1103,64 @@ public class TagPriceView extends View {
 
 			paramCanvas.restore();
 		}
-	    
-	    paramCanvas.save();
-	    paramCanvas.clipRect(new Rect(0, 0, 400, 43));
-	  //  paramCanvas.clipRect(new Rect(0, 0, 256, 23));
-	//    setFont("fonts/SIMSUN.TTC", 20);
-	   // font = Typeface.createFromFile("/system/fonts/simsun.ttc");
-	//	Typeface face = Typeface.createFromAsset (getAssets() , "fonts/GODEX.TTF");  
-	  //  this.paint.setTypeface(font);
-	   // font = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD);
-	    //font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-BoldItalic.ttf");
-	   // font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Bold.ttf");
-	    font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
-	    this.paint.setTypeface(font);
-	    this.paint.setFakeBoldText(true);
-	    this.paint.setColor(Color.BLACK);
-	   // this.paint.setFakeBoldText(true);
-	    this.paint.setTextSize(35);
-	   // paramCanvas.drawColor(Color.GRAY);
-	   // int i1 = (int)(400 - this.paint.measureText(this.proInfo.getProductName().toString())) / 2;
-	    paramCanvas.drawText(this.proInfo.getProductName().toString(), leftEdge, 38, this.paint);
-	    paramCanvas.restore();
-	    //font = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL);
-    //将字体文件保存在assets/fonts/目录下，创建Typeface对象 
-	    //font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Regular.ttf");
-	    font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
-	    this.paint.setTypeface(font);
-	   // this.paint.setFakeBoldText(false);
-	    this.paint.setColor(Color.BLACK);
-	    this.paint.setTextSize(25);
-	    paramCanvas.drawText(this.context.getResources().getString(R.string.unit)+":", leftEdge+3, yBegin, this.paint);
-	    int i1 = (int)this.paint.measureText(this.context.getResources().getString(R.string.unit)+":");
-	   // font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
-	   // this.paint.setTypeface(font);
-	    this.paint.setTextSize(23);
-	    paramCanvas.drawText(this.proInfo.getUnit().toString(), leftEdge+i1+5+3, yBegin, this.paint);
-	
-	    this.paint.setTextSize(25);
-	    paramCanvas.drawText(this.context.getResources().getString(R.string.field) + ":", leftEdge+3, yBegin+yStep, this.paint);
-	    int i2 = (int)this.paint.measureText(this.context.getResources().getString(R.string.field) + ":");  
-	    paramCanvas.drawText(this.proInfo.getField().toString(), leftEdge+i2+5+3, yBegin+yStep, this.paint);
-	    
-	    
-	    paramCanvas.drawText(this.context.getResources().getString(R.string.spec) + ":", leftEdge+3, yBegin+yStep+yStep, this.paint);
-	    int i3 = (int)this.paint.measureText(this.context.getResources().getString(R.string.field) + ":");  
-	    paramCanvas.drawText(this.proInfo.getSpecification().toString(), leftEdge+i3+5+3, yBegin+yStep+yStep, this.paint);
 
-	    paramCanvas.drawText(this.context.getResources().getString(R.string.grade) + ":", leftEdge+3, yBegin+yStep+yStep+yStep, this.paint);
-	    int i4 = (int)this.paint.measureText(this.context.getResources().getString(R.string.grade) + ":");  
-	    paramCanvas.drawText(this.proInfo.getGrade().toString(), leftEdge+i4+5+3, yBegin+yStep+yStep+yStep, this.paint); 
-	    
-	    font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
-	    this.paint.setTypeface(font); 
-	    this.paint.setTextSize(82);
-	    this.paint.setFakeBoldText(false);
+		paramCanvas.save();
+		paramCanvas.clipRect(new Rect(0, 0, 400, 43));
+		//  paramCanvas.clipRect(new Rect(0, 0, 256, 23));
+		//    setFont("fonts/SIMSUN.TTC", 20);
+		// font = Typeface.createFromFile("/system/fonts/simsun.ttc");
+		//	Typeface face = Typeface.createFromAsset (getAssets() , "fonts/GODEX.TTF");
+		//  this.paint.setTypeface(font);
+		// font = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD);
+		//font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-BoldItalic.ttf");
+		// font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Bold.ttf");
+		font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
+		this.paint.setTypeface(font);
+		this.paint.setFakeBoldText(true);
+		this.paint.setColor(Color.BLACK);
+		// this.paint.setFakeBoldText(true);
+		this.paint.setTextSize(35);
+		// paramCanvas.drawColor(Color.GRAY);
+		// int i1 = (int)(400 - this.paint.measureText(this.proInfo.getProductName().toString())) / 2;
+		paramCanvas.drawText(this.proInfo.getProductName().toString(), leftEdge, 38, this.paint);
+		paramCanvas.restore();
+		//font = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL);
+		//将字体文件保存在assets/fonts/目录下，创建Typeface对象
+		//font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Regular.ttf");
+		font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
+		this.paint.setTypeface(font);
+		// this.paint.setFakeBoldText(false);
+		this.paint.setColor(Color.BLACK);
+		this.paint.setTextSize(25);
+		paramCanvas.drawText("单位:", leftEdge+3, yBegin, this.paint);
+		int i1 = (int)this.paint.measureText("单位:");
+		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
+		// this.paint.setTypeface(font);
+		this.paint.setTextSize(23);
+		paramCanvas.drawText(this.proInfo.getUnit().toString(), leftEdge+i1+5+3, yBegin, this.paint);
 
-	    paramCanvas.drawText("�??", leftEdge, yPriceFlag, this.paint);
+		this.paint.setTextSize(25);
+		paramCanvas.drawText("产地:", leftEdge+3, yBegin+yStep, this.paint);
+		int i2 = (int)this.paint.measureText("产地:");
+		paramCanvas.drawText(this.proInfo.getField().toString(), leftEdge+i2+5+3, yBegin+yStep, this.paint);
 
-	    
+
+		paramCanvas.drawText("规格:", leftEdge+3, yBegin+yStep+yStep, this.paint);
+		int i3 = (int)this.paint.measureText("产地:");
+		paramCanvas.drawText(this.proInfo.getSpecification().toString(), leftEdge+i3+5+3, yBegin+yStep+yStep, this.paint);
+
+		paramCanvas.drawText("等级:", leftEdge+3, yBegin+yStep+yStep+yStep, this.paint);
+		int i4 = (int)this.paint.measureText("等级:");
+		paramCanvas.drawText(this.proInfo.getGrade().toString(), leftEdge+i4+5+3, yBegin+yStep+yStep+yStep, this.paint);
+
+		font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
+		this.paint.setTypeface(font);
+		this.paint.setTextSize(82);
+		this.paint.setFakeBoldText(false);
+
+		paramCanvas.drawText("�??", leftEdge, yPriceFlag, this.paint);
+
+
 //		if (!this.proInfo.getQrCode().toString().isEmpty()) {
 //			paramCanvas.save();
 //
@@ -1200,40 +1173,40 @@ public class TagPriceView extends View {
 //
 //			paramCanvas.restore();
 //		}
-	    
-	    if (!this.proInfo.getEan13Code().toString().isEmpty())
-	    {
-	      paramCanvas.save();
 
-	      //paramCanvas.drawBitmap(big(generateBitmap("深圳市联合智能卡有限公司",80,80)), xqrCode, yqrCode, this.paint);
-	      paramCanvas.drawBitmap(drawBarcode(), xbarCode, ybarCode, this.paint); 
-	      paramCanvas.restore();
-	    }
-	    
+		if (!this.proInfo.getEan13Code().toString().isEmpty())
+		{
+			paramCanvas.save();
+
+			//paramCanvas.drawBitmap(big(generateBitmap("深圳市联合智能卡有限公司",80,80)), xqrCode, yqrCode, this.paint);
+			paramCanvas.drawBitmap(drawBarcode(), xbarCode, ybarCode, this.paint);
+			paramCanvas.restore();
+		}
+
 //////////////////////////////////////////////////// draw price///////////////////////////////
-	    font = Typeface.createFromAsset(getContext().getAssets(), "fonts/APARAJB.TTF");
-	    this.paint.setTypeface(font); 
-	//    this.paint.setTextSize(133);
-	    //this.paint.setFakeBoldText(true);
-	   // paramCanvas.drawText("99.", leftEdge+80, yPriceFlag, this.paint);
-	    
+		font = Typeface.createFromAsset(getContext().getAssets(), "fonts/APARAJB.TTF");
+		this.paint.setTypeface(font);
+		//    this.paint.setTextSize(133);
+		//this.paint.setFakeBoldText(true);
+		// paramCanvas.drawText("99.", leftEdge+80, yPriceFlag, this.paint);
+
 		int priPos = this.proInfo.getPrice().toString().indexOf(".");
 		int priLength = this.proInfo.getPrice().length();
 
 		// this.paint.setTextSize(70);//133
 		if (priPos != -1) {
 			if(priLength <= 6)
-			{	
+			{
 				lPriceSize = 140;
 				rPriceSize = 113;
 			}
 			else if(priLength == 7)
-			{	
+			{
 				lPriceSize = 120;
 				rPriceSize = 93;
 			}
 			else if(priLength == 8)
-			{	
+			{
 				lPriceSize = 110;
 				rPriceSize = 83;
 			}
@@ -1241,8 +1214,8 @@ public class TagPriceView extends View {
 			{
 				lPriceSize = 110 - 12*(priLength - 8);
 				rPriceSize = 83 - 12*(priLength - 8);
-				
-			}	
+
+			}
 			this.paint.setTextSize(lPriceSize);// 133
 			// this.paint.setTextSize(133);//31
 			// font = Typeface.create(Typeface.SANS_SERIF,
@@ -1262,48 +1235,48 @@ public class TagPriceView extends View {
 					this.paint);
 
 		}
-	    
-	    else
-	    {
+
+		else
+		{
 			if(priLength <= 4)
-			{	
+			{
 				lPriceSize = 140;
-			
+
 			}
 			else if(priLength <= 5)
-			{	
+			{
 				lPriceSize = 130;
-			
+
 			}
 			else if(priLength == 6)
-			{	
+			{
 				lPriceSize = 110;
-				
+
 			}
 			else if(priLength == 7)
-			{	
+			{
 				lPriceSize = 100;
-			
+
 			}
 			else
 			{
 				lPriceSize = 100 - 8*(priLength - 7);
-							
+
 			}
-	    	this.paint.setTextSize(lPriceSize);// 133
-	    	paramCanvas.drawText(this.proInfo.getPrice().toString(), xPriceFlag, yPriceFlag, this.paint);
-	    }
-	    
-	    
-//////////////////////////////////////////////////////////////////////////////////////////////	    
-	    
-	    
-	  }
-	
+			this.paint.setTextSize(lPriceSize);// 133
+			paramCanvas.drawText(this.proInfo.getPrice().toString(), xPriceFlag, yPriceFlag, this.paint);
+		}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+	}
+
 
 	public void drawTagPicCh42BWR(Canvas paramCanvas)
-	  {
-	  //  (14 + 6);
+	{
+		//  (14 + 6);
 	  /*  int i = 2 + 34;
 	    int j = 2 + 50;
 	    int k = 2 + 66;
@@ -1311,29 +1284,29 @@ public class TagPriceView extends View {
 	    int n = 2 + 98;
 	    */
 
-	    
-	    int leftEdge = 10;
-	    float yBegin = 76;
-	    float yStep = 34;//36;
-	    
-	    float xPriceFlag = leftEdge+80;
-	    float yPriceFlag = yBegin + 3*yStep+110;
-	    	    
-	    float yqrCode = 40;
-	    float xqrCode = leftEdge + 260;
-	    
-	    float ybarCode = 153;
-	    float xbarCode = leftEdge + 260;
-	   
+
+		int leftEdge = 10;
+		float yBegin = 76;
+		float yStep = 34;//36;
+
+		float xPriceFlag = leftEdge+80;
+		float yPriceFlag = yBegin + 3*yStep+110;
+
+		float yqrCode = 40;
+		float xqrCode = leftEdge + 260;
+
+		float ybarCode = 153;
+		float xbarCode = leftEdge + 260;
+
 		float lPriceSize = 0;
 		float rPriceSize = 0;
-	    
-	  //  paramCanvas.setBitmap(bitmap);
-	    paramCanvas.clipRect(new Rect(0, 0, 400, 400));
-	   // paramCanvas.clipRect(new Rect(0, 0, 256, 122));
-	    paramCanvas.drawColor(Color.WHITE);
-	    
-	    
+
+		//  paramCanvas.setBitmap(bitmap);
+		paramCanvas.clipRect(new Rect(0, 0, 400, 400));
+		// paramCanvas.clipRect(new Rect(0, 0, 256, 122));
+		paramCanvas.drawColor(Color.WHITE);
+
+
 		if (!this.proInfo.getQrCode().toString().isEmpty()) {
 			paramCanvas.save();
 
@@ -1345,68 +1318,68 @@ public class TagPriceView extends View {
 			// xqrCode, yqrCode, this.paint);
 
 			paramCanvas.restore();
-		}  
-	    
-	    
-	    
-	    paramCanvas.save();
-	    paramCanvas.clipRect(new Rect(0, 0, 400, 43));
-	  //  paramCanvas.clipRect(new Rect(0, 0, 256, 23));
-	//    setFont("fonts/SIMSUN.TTC", 20);
-	   // font = Typeface.createFromFile("/system/fonts/simsun.ttc");
-	//	Typeface face = Typeface.createFromAsset (getAssets() , "fonts/GODEX.TTF");  
-	  //  this.paint.setTypeface(font);
-	   // font = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD);
-	    //font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-BoldItalic.ttf");
-	   // font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Bold.ttf");
-	    font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
-	    this.paint.setTypeface(font);
-	    this.paint.setFakeBoldText(true);
-	    //this.paint.setColor(Color.BLACK);
-	    this.paint.setColor(0xFFB21F2E);
-	   // this.paint.setFakeBoldText(true);
-	    this.paint.setTextSize(35);
-	   // paramCanvas.drawColor(Color.GRAY);
-	   // int i1 = (int)(400 - this.paint.measureText(this.proInfo.getProductName().toString())) / 2;
-	    paramCanvas.drawText(this.proInfo.getProductName().toString(), leftEdge, 38, this.paint);
-	    paramCanvas.restore();
-	    //font = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL);
-  //将字体文件保存在assets/fonts/目录下，创建Typeface对象 
-	    //font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Regular.ttf");
-	    font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
-	    this.paint.setTypeface(font);
-	   // this.paint.setFakeBoldText(false);
-	    this.paint.setColor(Color.BLACK);
-	    this.paint.setTextSize(25);
-	    paramCanvas.drawText(this.context.getResources().getString(R.string.unit)+":", leftEdge+3, yBegin, this.paint);
-	    int i1 = (int)this.paint.measureText(this.context.getResources().getString(R.string.unit)+":");
-	   // font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
-	   // this.paint.setTypeface(font);
-	    this.paint.setTextSize(23);
-	    paramCanvas.drawText(this.proInfo.getUnit().toString(), leftEdge+i1+5+3, yBegin, this.paint);
-	
-	    this.paint.setTextSize(25);
-	    paramCanvas.drawText(this.context.getResources().getString(R.string.field) + ":", leftEdge+3, yBegin+yStep, this.paint);
-	    int i2 = (int)this.paint.measureText(this.context.getResources().getString(R.string.field) + ":");  
-	    paramCanvas.drawText(this.proInfo.getField().toString(), leftEdge+i2+5+3, yBegin+yStep, this.paint);
-	    
-	    
-	    paramCanvas.drawText(this.context.getResources().getString(R.string.spec) + ":", leftEdge+3, yBegin+yStep+yStep, this.paint);
-	    int i3 = (int)this.paint.measureText(this.context.getResources().getString(R.string.field) + ":");  
-	    paramCanvas.drawText(this.proInfo.getSpecification().toString(), leftEdge+i3+5+3, yBegin+yStep+yStep, this.paint);
+		}
 
-	    paramCanvas.drawText(this.context.getResources().getString(R.string.grade) + ":", leftEdge+3, yBegin+yStep+yStep+yStep, this.paint);
-	    int i4 = (int)this.paint.measureText(this.context.getResources().getString(R.string.grade) + ":");  
-	    paramCanvas.drawText(this.proInfo.getGrade().toString(), leftEdge+i4+5+3, yBegin+yStep+yStep+yStep, this.paint); 
-	    
-	    font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
-	    this.paint.setTypeface(font); 
-	    this.paint.setTextSize(82);
-	    this.paint.setFakeBoldText(false);
 
-	    paramCanvas.drawText("�??", leftEdge, yPriceFlag, this.paint);
 
-	    
+		paramCanvas.save();
+		paramCanvas.clipRect(new Rect(0, 0, 400, 43));
+		//  paramCanvas.clipRect(new Rect(0, 0, 256, 23));
+		//    setFont("fonts/SIMSUN.TTC", 20);
+		// font = Typeface.createFromFile("/system/fonts/simsun.ttc");
+		//	Typeface face = Typeface.createFromAsset (getAssets() , "fonts/GODEX.TTF");
+		//  this.paint.setTypeface(font);
+		// font = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD);
+		//font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-BoldItalic.ttf");
+		// font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Bold.ttf");
+		font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
+		this.paint.setTypeface(font);
+		this.paint.setFakeBoldText(true);
+		//this.paint.setColor(Color.BLACK);
+		this.paint.setColor(0xFFB21F2E);
+		// this.paint.setFakeBoldText(true);
+		this.paint.setTextSize(35);
+		// paramCanvas.drawColor(Color.GRAY);
+		// int i1 = (int)(400 - this.paint.measureText(this.proInfo.getProductName().toString())) / 2;
+		paramCanvas.drawText(this.proInfo.getProductName().toString(), leftEdge, 38, this.paint);
+		paramCanvas.restore();
+		//font = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL);
+		//将字体文件保存在assets/fonts/目录下，创建Typeface对象
+		//font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Regular.ttf");
+		font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
+		this.paint.setTypeface(font);
+		// this.paint.setFakeBoldText(false);
+		this.paint.setColor(Color.BLACK);
+		this.paint.setTextSize(25);
+		paramCanvas.drawText("单位:", leftEdge+3, yBegin, this.paint);
+		int i1 = (int)this.paint.measureText("单位:");
+		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
+		// this.paint.setTypeface(font);
+		this.paint.setTextSize(23);
+		paramCanvas.drawText(this.proInfo.getUnit().toString(), leftEdge+i1+5+3, yBegin, this.paint);
+
+		this.paint.setTextSize(25);
+		paramCanvas.drawText("产地:", leftEdge+3, yBegin+yStep, this.paint);
+		int i2 = (int)this.paint.measureText("产地:");
+		paramCanvas.drawText(this.proInfo.getField().toString(), leftEdge+i2+5+3, yBegin+yStep, this.paint);
+
+
+		paramCanvas.drawText("规格:", leftEdge+3, yBegin+yStep+yStep, this.paint);
+		int i3 = (int)this.paint.measureText("产地:");
+		paramCanvas.drawText(this.proInfo.getSpecification().toString(), leftEdge+i3+5+3, yBegin+yStep+yStep, this.paint);
+
+		paramCanvas.drawText("等级:", leftEdge+3, yBegin+yStep+yStep+yStep, this.paint);
+		int i4 = (int)this.paint.measureText("等级:");
+		paramCanvas.drawText(this.proInfo.getGrade().toString(), leftEdge+i4+5+3, yBegin+yStep+yStep+yStep, this.paint);
+
+		font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
+		this.paint.setTypeface(font);
+		this.paint.setTextSize(82);
+		this.paint.setFakeBoldText(false);
+
+		paramCanvas.drawText("�??", leftEdge, yPriceFlag, this.paint);
+
+
 //		if (!this.proInfo.getQrCode().toString().isEmpty()) {
 //			paramCanvas.save();
 //
@@ -1419,41 +1392,41 @@ public class TagPriceView extends View {
 //
 //			paramCanvas.restore();
 //		}
-	    
-	    if (!this.proInfo.getEan13Code().toString().isEmpty())
-	    {
-	      paramCanvas.save();
 
-	      //paramCanvas.drawBitmap(big(generateBitmap("深圳市联合智能卡有限公司",80,80)), xqrCode, yqrCode, this.paint);
-	      paramCanvas.drawBitmap(drawBarcode(), xbarCode, ybarCode, this.paint); 
-	      paramCanvas.restore();
-	    }
-	    
+		if (!this.proInfo.getEan13Code().toString().isEmpty())
+		{
+			paramCanvas.save();
+
+			//paramCanvas.drawBitmap(big(generateBitmap("深圳市联合智能卡有限公司",80,80)), xqrCode, yqrCode, this.paint);
+			paramCanvas.drawBitmap(drawBarcode(), xbarCode, ybarCode, this.paint);
+			paramCanvas.restore();
+		}
+
 ////////////////////////////////////////////////////draw price///////////////////////////////
-	    font = Typeface.createFromAsset(getContext().getAssets(), "fonts/APARAJB.TTF");
-	    this.paint.setColor(0xFFB21F2E);
-	    this.paint.setTypeface(font); 
-	//    this.paint.setTextSize(133);
-	    //this.paint.setFakeBoldText(true);
-	   // paramCanvas.drawText("99.", leftEdge+80, yPriceFlag, this.paint);
-	    
+		font = Typeface.createFromAsset(getContext().getAssets(), "fonts/APARAJB.TTF");
+		this.paint.setColor(0xFFB21F2E);
+		this.paint.setTypeface(font);
+		//    this.paint.setTextSize(133);
+		//this.paint.setFakeBoldText(true);
+		// paramCanvas.drawText("99.", leftEdge+80, yPriceFlag, this.paint);
+
 		int priPos = this.proInfo.getPrice().toString().indexOf(".");
 		int priLength = this.proInfo.getPrice().length();
 
 		// this.paint.setTextSize(70);//133
 		if (priPos != -1) {
 			if(priLength <= 6)
-			{	
+			{
 				lPriceSize = 140;
 				rPriceSize = 113;
 			}
 			else if(priLength == 7)
-			{	
+			{
 				lPriceSize = 120;
 				rPriceSize = 93;
 			}
 			else if(priLength == 8)
-			{	
+			{
 				lPriceSize = 110;
 				rPriceSize = 83;
 			}
@@ -1461,8 +1434,8 @@ public class TagPriceView extends View {
 			{
 				lPriceSize = 110 - 12*(priLength - 8);
 				rPriceSize = 83 - 12*(priLength - 8);
-				
-			}	
+
+			}
 			this.paint.setTextSize(lPriceSize);// 133
 			// this.paint.setTextSize(133);//31
 			// font = Typeface.create(Typeface.SANS_SERIF,
@@ -1482,48 +1455,48 @@ public class TagPriceView extends View {
 					this.paint);
 
 		}
-	    
-	    else
-	    {
+
+		else
+		{
 			if(priLength <= 4)
-			{	
+			{
 				lPriceSize = 140;
-			
+
 			}
 			else if(priLength <= 5)
-			{	
+			{
 				lPriceSize = 130;
-			
+
 			}
 			else if(priLength == 6)
-			{	
+			{
 				lPriceSize = 110;
-				
+
 			}
 			else if(priLength == 7)
-			{	
+			{
 				lPriceSize = 100;
-			
+
 			}
 			else
 			{
 				lPriceSize = 100 - 8*(priLength - 7);
-							
+
 			}
-	    	this.paint.setTextSize(lPriceSize);// 133
-	    	paramCanvas.drawText(this.proInfo.getPrice().toString(), xPriceFlag, yPriceFlag, this.paint);
-	    }
-	    
-	    
-//////////////////////////////////////////////////////////////////////////////////////////////	    
-	    
-	    
-	  }
-	
-	
+			this.paint.setTextSize(lPriceSize);// 133
+			paramCanvas.drawText(this.proInfo.getPrice().toString(), xPriceFlag, yPriceFlag, this.paint);
+		}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+	}
+
+
 	public void drawTagPicCh42_BW(Canvas paramCanvas)
-	  {
-	  //  (14 + 6);
+	{
+		//  (14 + 6);
 	  /*  int i = 2 + 34;
 	    int j = 2 + 50;
 	    int k = 2 + 66;
@@ -1531,33 +1504,33 @@ public class TagPriceView extends View {
 	    int n = 2 + 98;
 	    */
 
-	    
-	    int leftEdge = 10;
-	    float yBegin = 76;
-	    float yStep = 34;//36;
-	    
-	    float xPriceFlag = leftEdge+80;
-	    float yPriceFlag = yBegin + 3*yStep+110;
-	    	    
-	    float yqrCode = 40;
-	    float xqrCode = leftEdge + 260;
-	    
-	    float ybarCode = 153;
-	    float xbarCode = leftEdge + 260;
-	   
+
+		int leftEdge = 10;
+		float yBegin = 76;
+		float yStep = 34;//36;
+
+		float xPriceFlag = leftEdge+80;
+		float yPriceFlag = yBegin + 3*yStep+110;
+
+		float yqrCode = 40;
+		float xqrCode = leftEdge + 260;
+
+		float ybarCode = 153;
+		float xbarCode = leftEdge + 260;
+
 		float lPriceSize = 0;
 		float rPriceSize = 0;
-	    
-	  //  paramCanvas.setBitmap(bitmap);
-	    paramCanvas.clipRect(new Rect(0, 0, 400, 400));
-	   // paramCanvas.clipRect(new Rect(0, 0, 256, 122));
-	    paramCanvas.drawColor(Color.WHITE);
+
+		//  paramCanvas.setBitmap(bitmap);
+		paramCanvas.clipRect(new Rect(0, 0, 400, 400));
+		// paramCanvas.clipRect(new Rect(0, 0, 256, 122));
+		paramCanvas.drawColor(Color.WHITE);
 //	    paramCanvas.save();
 //	    paramCanvas.clipRect(new Rect(0, 0, 400, 40));
 //	  //  paramCanvas.clipRect(new Rect(0, 0, 256, 23));
 //	//    setFont("fonts/SIMSUN.TTC", 20);
 //	   // font = Typeface.createFromFile("/system/fonts/simsun.ttc");
-//	//	Typeface face = Typeface.createFromAsset (getAssets() , "fonts/GODEX.TTF");  
+//	//	Typeface face = Typeface.createFromAsset (getAssets() , "fonts/GODEX.TTF");
 //	  //  this.paint.setTypeface(font);
 //	   // font = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD);
 //	    //font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-BoldItalic.ttf");
@@ -1573,43 +1546,43 @@ public class TagPriceView extends View {
 //	   // int i1 = (int)(400 - this.paint.measureText(this.proInfo.getProductName().toString())) / 2;
 //	    paramCanvas.drawText(this.proInfo.getProductName().toString(), leftEdge, 38, this.paint);
 //	    paramCanvas.restore();
-	    //font = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL);
-//将字体文件保存在assets/fonts/目录下，创建Typeface对象 
-	    //font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Regular.ttf");
-	    font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
-	    this.paint.setTypeface(font);
-	   // this.paint.setFakeBoldText(false);
-	    this.paint.setColor(Color.BLACK);
-	    this.paint.setTextSize(25);
-	    paramCanvas.drawText(this.context.getResources().getString(R.string.unit)+":", leftEdge+3, yBegin, this.paint);
-	    int i1 = (int)this.paint.measureText(this.context.getResources().getString(R.string.unit)+":");
-	   // font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
-	   // this.paint.setTypeface(font);
-	    this.paint.setTextSize(23);
-	    paramCanvas.drawText(this.proInfo.getUnit().toString(), leftEdge+i1+5+3, yBegin, this.paint);
-	
-	    this.paint.setTextSize(25);
-	    paramCanvas.drawText(this.context.getResources().getString(R.string.field) + ":", leftEdge+3, yBegin+yStep, this.paint);
-	    int i2 = (int)this.paint.measureText(this.context.getResources().getString(R.string.field) + ":");  
-	    paramCanvas.drawText(this.proInfo.getField().toString(), leftEdge+i2+5+3, yBegin+yStep, this.paint);
-	    
-	    
-	    paramCanvas.drawText(this.context.getResources().getString(R.string.spec) + ":", leftEdge+3, yBegin+yStep+yStep, this.paint);
-	    int i3 = (int)this.paint.measureText(this.context.getResources().getString(R.string.field) + ":");  
-	    paramCanvas.drawText(this.proInfo.getSpecification().toString(), leftEdge+i3+5+3, yBegin+yStep+yStep, this.paint);
+		//font = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL);
+//将字体文件保存在assets/fonts/目录下，创建Typeface对象
+		//font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Regular.ttf");
+		font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
+		this.paint.setTypeface(font);
+		// this.paint.setFakeBoldText(false);
+		this.paint.setColor(Color.BLACK);
+		this.paint.setTextSize(25);
+		paramCanvas.drawText("单位:", leftEdge+3, yBegin, this.paint);
+		int i1 = (int)this.paint.measureText("单位:");
+		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
+		// this.paint.setTypeface(font);
+		this.paint.setTextSize(23);
+		paramCanvas.drawText(this.proInfo.getUnit().toString(), leftEdge+i1+5+3, yBegin, this.paint);
 
-	    paramCanvas.drawText(this.context.getResources().getString(R.string.grade) + ":", leftEdge+3, yBegin+yStep+yStep+yStep, this.paint);
-	    int i4 = (int)this.paint.measureText(this.context.getResources().getString(R.string.grade) + ":");  
-	    paramCanvas.drawText(this.proInfo.getGrade().toString(), leftEdge+i4+5+3, yBegin+yStep+yStep+yStep, this.paint); 
-	    
-	    font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
-	    this.paint.setTypeface(font); 
-	    this.paint.setTextSize(82);
-	    this.paint.setFakeBoldText(false);
+		this.paint.setTextSize(25);
+		paramCanvas.drawText("产地:", leftEdge+3, yBegin+yStep, this.paint);
+		int i2 = (int)this.paint.measureText("产地:");
+		paramCanvas.drawText(this.proInfo.getField().toString(), leftEdge+i2+5+3, yBegin+yStep, this.paint);
 
-	    paramCanvas.drawText("�??", leftEdge, yPriceFlag, this.paint);
 
-	    
+		paramCanvas.drawText("规格:", leftEdge+3, yBegin+yStep+yStep, this.paint);
+		int i3 = (int)this.paint.measureText("产地:");
+		paramCanvas.drawText(this.proInfo.getSpecification().toString(), leftEdge+i3+5+3, yBegin+yStep+yStep, this.paint);
+
+		paramCanvas.drawText("等级:", leftEdge+3, yBegin+yStep+yStep+yStep, this.paint);
+		int i4 = (int)this.paint.measureText("等级:");
+		paramCanvas.drawText(this.proInfo.getGrade().toString(), leftEdge+i4+5+3, yBegin+yStep+yStep+yStep, this.paint);
+
+		font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
+		this.paint.setTypeface(font);
+		this.paint.setTextSize(82);
+		this.paint.setFakeBoldText(false);
+
+		paramCanvas.drawText("�??", leftEdge, yPriceFlag, this.paint);
+
+
 		if (!this.proInfo.getQrCode().toString().isEmpty()) {
 			paramCanvas.save();
 
@@ -1622,41 +1595,41 @@ public class TagPriceView extends View {
 
 			paramCanvas.restore();
 		}
-	    
-	    if (!this.proInfo.getEan13Code().toString().isEmpty())
-	    {
-	      paramCanvas.save();
 
-	      //paramCanvas.drawBitmap(big(generateBitmap("深圳市联合智能卡有限公司",80,80)), xqrCode, yqrCode, this.paint);
-	      paramCanvas.drawBitmap(drawBarcode(), xbarCode, ybarCode, this.paint); 
-	      paramCanvas.restore();
-	    }
-	    
+		if (!this.proInfo.getEan13Code().toString().isEmpty())
+		{
+			paramCanvas.save();
+
+			//paramCanvas.drawBitmap(big(generateBitmap("深圳市联合智能卡有限公司",80,80)), xqrCode, yqrCode, this.paint);
+			paramCanvas.drawBitmap(drawBarcode(), xbarCode, ybarCode, this.paint);
+			paramCanvas.restore();
+		}
+
 ////////////////////////////////////////////////////draw price///////////////////////////////
 //	    font = Typeface.createFromAsset(getContext().getAssets(), "fonts/APARAJB.TTF");
 //	    this.paint.setColor(0xFFB21F2E);
-//	    this.paint.setTypeface(font); 
+//	    this.paint.setTypeface(font);
 //	//    this.paint.setTextSize(133);
 //	    //this.paint.setFakeBoldText(true);
 //	   // paramCanvas.drawText("99.", leftEdge+80, yPriceFlag, this.paint);
-//	    
+//
 //		int priPos = this.proInfo.getPrice().toString().indexOf(".");
 //		int priLength = this.proInfo.getPrice().length();
 //
 //		// this.paint.setTextSize(70);//133
 //		if (priPos != -1) {
 //			if(priLength <= 6)
-//			{	
+//			{
 //				lPriceSize = 140;
 //				rPriceSize = 113;
 //			}
 //			else if(priLength == 7)
-//			{	
+//			{
 //				lPriceSize = 120;
 //				rPriceSize = 93;
 //			}
 //			else if(priLength == 8)
-//			{	
+//			{
 //				lPriceSize = 110;
 //				rPriceSize = 83;
 //			}
@@ -1664,8 +1637,8 @@ public class TagPriceView extends View {
 //			{
 //				lPriceSize = 110 - 12*(priLength - 8);
 //				rPriceSize = 83 - 12*(priLength - 8);
-//				
-//			}	
+//
+//			}
 //			this.paint.setTextSize(lPriceSize);// 133
 //			// this.paint.setTextSize(133);//31
 //			// font = Typeface.create(Typeface.SANS_SERIF,
@@ -1685,49 +1658,49 @@ public class TagPriceView extends View {
 //					this.paint);
 //
 //		}
-//	    
+//
 //	    else
 //	    {
 //			if(priLength <= 4)
-//			{	
+//			{
 //				lPriceSize = 140;
-//			
+//
 //			}
 //			else if(priLength <= 5)
-//			{	
+//			{
 //				lPriceSize = 130;
-//			
+//
 //			}
 //			else if(priLength == 6)
-//			{	
+//			{
 //				lPriceSize = 110;
-//				
+//
 //			}
 //			else if(priLength == 7)
-//			{	
+//			{
 //				lPriceSize = 100;
-//			
+//
 //			}
 //			else
 //			{
 //				lPriceSize = 100 - 8*(priLength - 7);
-//							
+//
 //			}
 //	    	this.paint.setTextSize(lPriceSize);// 133
 //	    	paramCanvas.drawText(this.proInfo.getPrice().toString(), xPriceFlag, yPriceFlag, this.paint);
 //	    }
-//	    
-	    
-//////////////////////////////////////////////////////////////////////////////////////////////	    
-	    
-	    
-	  }
-	
-	
-	
+//
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+	}
+
+
+
 	public void drawTagPicCh42_R(Canvas paramCanvas)
-	  {
-	  //  (14 + 6);
+	{
+		//  (14 + 6);
 	  /*  int i = 2 + 34;
 	    int j = 2 + 50;
 	    int k = 2 + 66;
@@ -1735,76 +1708,76 @@ public class TagPriceView extends View {
 	    int n = 2 + 98;
 	    */
 
-	    
-	    int leftEdge = 10;
-	    float yBegin = 76;
-	    float yStep = 34;//36;
-	    
-	    float xPriceFlag = leftEdge+80;
-	    float yPriceFlag = yBegin + 3*yStep+110;
-	    	    
-	    float yqrCode = 40;
-	    float xqrCode = leftEdge + 260;
-	    
-	    float ybarCode = 153;
-	    float xbarCode = leftEdge + 260;
-	   
+
+		int leftEdge = 10;
+		float yBegin = 76;
+		float yStep = 34;//36;
+
+		float xPriceFlag = leftEdge+80;
+		float yPriceFlag = yBegin + 3*yStep+110;
+
+		float yqrCode = 40;
+		float xqrCode = leftEdge + 260;
+
+		float ybarCode = 153;
+		float xbarCode = leftEdge + 260;
+
 		float lPriceSize = 0;
 		float rPriceSize = 0;
-	    
-	  //  paramCanvas.setBitmap(bitmap);
-	    paramCanvas.clipRect(new Rect(0, 0, 400, 400));
-	   // paramCanvas.clipRect(new Rect(0, 0, 256, 122));
-	    paramCanvas.drawColor(Color.WHITE);
-	    paramCanvas.save();
-	    paramCanvas.clipRect(new Rect(0, 0, 400, 43));
-	  //  paramCanvas.clipRect(new Rect(0, 0, 256, 23));
-	//    setFont("fonts/SIMSUN.TTC", 20);
-	   // font = Typeface.createFromFile("/system/fonts/simsun.ttc");
-	//	Typeface face = Typeface.createFromAsset (getAssets() , "fonts/GODEX.TTF");  
-	  //  this.paint.setTypeface(font);
-	   // font = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD);
-	    //font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-BoldItalic.ttf");
-	   // font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Bold.ttf");
-	    font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
-	    this.paint.setTypeface(font);
-	    this.paint.setFakeBoldText(true);
-	    this.paint.setColor(Color.BLACK);
-	    //this.paint.setColor(0xFFB21F2E);
-	   // this.paint.setFakeBoldText(true);
-	    this.paint.setTextSize(35);
-	   // paramCanvas.drawColor(Color.GRAY);
-	   // int i1 = (int)(400 - this.paint.measureText(this.proInfo.getProductName().toString())) / 2;
-	    paramCanvas.drawText(this.proInfo.getProductName().toString(), leftEdge, 38, this.paint);
-	    paramCanvas.restore();
+
+		//  paramCanvas.setBitmap(bitmap);
+		paramCanvas.clipRect(new Rect(0, 0, 400, 400));
+		// paramCanvas.clipRect(new Rect(0, 0, 256, 122));
+		paramCanvas.drawColor(Color.WHITE);
+		paramCanvas.save();
+		paramCanvas.clipRect(new Rect(0, 0, 400, 43));
+		//  paramCanvas.clipRect(new Rect(0, 0, 256, 23));
+		//    setFont("fonts/SIMSUN.TTC", 20);
+		// font = Typeface.createFromFile("/system/fonts/simsun.ttc");
+		//	Typeface face = Typeface.createFromAsset (getAssets() , "fonts/GODEX.TTF");
+		//  this.paint.setTypeface(font);
+		// font = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD);
+		//font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-BoldItalic.ttf");
+		// font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Bold.ttf");
+		font = Typeface.createFromAsset(getContext().getAssets(), "fonts/simfang.ttf");
+		this.paint.setTypeface(font);
+		this.paint.setFakeBoldText(true);
+		this.paint.setColor(Color.BLACK);
+		//this.paint.setColor(0xFFB21F2E);
+		// this.paint.setFakeBoldText(true);
+		this.paint.setTextSize(35);
+		// paramCanvas.drawColor(Color.GRAY);
+		// int i1 = (int)(400 - this.paint.measureText(this.proInfo.getProductName().toString())) / 2;
+		paramCanvas.drawText(this.proInfo.getProductName().toString(), leftEdge, 38, this.paint);
+		paramCanvas.restore();
 
 
-	    
+
 ////////////////////////////////////////////////////draw price///////////////////////////////
-	    font = Typeface.createFromAsset(getContext().getAssets(), "fonts/APARAJB.TTF");
-	    //this.paint.setColor(0xFFB21F2E);
-	    this.paint.setTypeface(font); 
-	//    this.paint.setTextSize(133);
-	    //this.paint.setFakeBoldText(true);
-	   // paramCanvas.drawText("99.", leftEdge+80, yPriceFlag, this.paint);
-	    
+		font = Typeface.createFromAsset(getContext().getAssets(), "fonts/APARAJB.TTF");
+		//this.paint.setColor(0xFFB21F2E);
+		this.paint.setTypeface(font);
+		//    this.paint.setTextSize(133);
+		//this.paint.setFakeBoldText(true);
+		// paramCanvas.drawText("99.", leftEdge+80, yPriceFlag, this.paint);
+
 		int priPos = this.proInfo.getPrice().toString().indexOf(".");
 		int priLength = this.proInfo.getPrice().length();
 
 		// this.paint.setTextSize(70);//133
 		if (priPos != -1) {
 			if(priLength <= 6)
-			{	
+			{
 				lPriceSize = 140;
 				rPriceSize = 113;
 			}
 			else if(priLength == 7)
-			{	
+			{
 				lPriceSize = 120;
 				rPriceSize = 93;
 			}
 			else if(priLength == 8)
-			{	
+			{
 				lPriceSize = 110;
 				rPriceSize = 83;
 			}
@@ -1812,8 +1785,8 @@ public class TagPriceView extends View {
 			{
 				lPriceSize = 110 - 12*(priLength - 8);
 				rPriceSize = 83 - 12*(priLength - 8);
-				
-			}	
+
+			}
 			this.paint.setTextSize(lPriceSize);// 133
 			// this.paint.setTextSize(133);//31
 			// font = Typeface.create(Typeface.SANS_SERIF,
@@ -1833,45 +1806,45 @@ public class TagPriceView extends View {
 					this.paint);
 
 		}
-	    
-	    else
-	    {
+
+		else
+		{
 			if(priLength <= 4)
-			{	
+			{
 				lPriceSize = 140;
-			
+
 			}
 			else if(priLength <= 5)
-			{	
+			{
 				lPriceSize = 130;
-			
+
 			}
 			else if(priLength == 6)
-			{	
+			{
 				lPriceSize = 110;
-				
+
 			}
 			else if(priLength == 7)
-			{	
+			{
 				lPriceSize = 100;
-			
+
 			}
 			else
 			{
 				lPriceSize = 100 - 8*(priLength - 7);
-							
+
 			}
-	    	this.paint.setTextSize(lPriceSize);// 133
-	    	paramCanvas.drawText(this.proInfo.getPrice().toString(), xPriceFlag, yPriceFlag, this.paint);
-	    }
-	    
-	    
-//////////////////////////////////////////////////////////////////////////////////////////////	    
-	    
-	    
-	  }
-	
-	
+			this.paint.setTextSize(lPriceSize);// 133
+			paramCanvas.drawText(this.proInfo.getPrice().toString(), xPriceFlag, yPriceFlag, this.paint);
+		}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+	}
+
+
 	private void drawTagPicCh75(Canvas paramCanvas) {
 		// (14 + 6);
 		/*
@@ -1895,9 +1868,9 @@ public class TagPriceView extends View {
 		paramCanvas.clipRect(new Rect(0, 0, 640, 384));
 
 		paramCanvas.drawColor(Color.WHITE);
-		
-		
-		
+
+
+
 		if (!this.proInfo.getQrCode().toString().isEmpty()) {
 			paramCanvas.save();
 
@@ -1910,10 +1883,10 @@ public class TagPriceView extends View {
 
 			paramCanvas.restore();
 		}
-		
-		
-		
-		
+
+
+
+
 //		paramCanvas.save();
 //		paramCanvas.clipRect(new Rect(0, 0, 640, 24));
 		font = Typeface.createFromAsset(getContext().getAssets(),
@@ -1930,21 +1903,19 @@ public class TagPriceView extends View {
 		this.paint.setColor(Color.BLACK);
 		this.paint.setTextSize((float) 35.0);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.unit) + ":",
+				"单位:",
 				leftEdge, yBegin, this.paint);
-		int i1 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.unit) + ":");
+		int i1 = (int) this.paint.measureText("单位:");
 		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
 		// this.paint.setTypeface(font);
-	
+
 		paramCanvas.drawText(this.proInfo.getUnit().toString(), leftEdge + i1,
 				yBegin, this.paint);
 		//this.paint.setTextSize(35);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.spec) + ":",
+				"规格:",
 				leftEdge + 190, yBegin, this.paint);
-		int i2 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.spec) + ":");
+		int i2 = (int) this.paint.measureText("规格:");
 		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
 		// this.paint.setTypeface(font);
 		// this.paint.setTextSize(18);
@@ -1957,10 +1928,9 @@ public class TagPriceView extends View {
 		// "fonts/kaiti.ttf");
 		// this.paint.setTypeface(font);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.grade) + ":",
+				"等级:",
 				leftEdge, yBegin + yStep, this.paint);
-		int i3 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.grade) + ":");
+		int i3 = (int) this.paint.measureText("等级:");
 		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
 		// this.paint.setTypeface(font);
 		//this.paint.setTextSize(35);
@@ -1972,10 +1942,9 @@ public class TagPriceView extends View {
 
 		//this.paint.setTextSize(35);
 		paramCanvas.drawText(
-				this.context.getResources().getString(R.string.field) + ":",
+				"产地:",
 				leftEdge + 190, yBegin + yStep, this.paint);
-		int i4 = (int) this.paint.measureText(this.context.getResources()
-				.getString(R.string.field) + ":");
+		int i4 = (int) this.paint.measureText("产地:");
 		// font = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC);
 		// this.paint.setTypeface(font);
 		// this.paint.setTextSize(15);
