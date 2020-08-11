@@ -18,7 +18,7 @@ import com.getcapacitor.PluginMethod;
 
 
 @NativePlugin(
-        permissions={
+        permissions = {
                 Manifest.permission.NFC
         }
 )
@@ -41,7 +41,7 @@ public class NFCPlugin extends Plugin {
 
     private boolean invert = false;
     private boolean HighSpeed = false;
-    private String strNdef="";
+    private String strNdef = "";
 
     private ReaderTransferApi readerApi;
 
@@ -58,15 +58,15 @@ public class NFCPlugin extends Plugin {
     // ******NFC CONFIG**************
     protected byte[] NFTData = new byte[4736];
 
-    String proName="NFC电子货架标签";
-    String unit="个";
-    String spec="2.X\"";
-    String grade="0001";
-    String field="深圳";
-    String price="66.00";
-    String barCode="6901285991240";
-    String qrCode="http://www.uswiot.cn";
-    String lcdInch="2.9";
+    String proName = "NFC电子货架标签";
+    String unit = "个";
+    String spec = "2.X\"";
+    String grade = "0001";
+    String field = "深圳";
+    String price = "66.00";
+    String barCode = "6901285991240";
+    String qrCode = "http://www.uswiot.cn";
+    String lcdInch = "2.9";
 
     @PluginMethod()
     public void echo(PluginCall call) {
@@ -76,9 +76,9 @@ public class NFCPlugin extends Plugin {
         call.resolve(ret);
 
         //首先判断tag是否在读卡器上面，在读卡器上面就可以手动刷，否则提示标签不在读卡器上面
-        if(readerApi.checkCardOnReader()) {
+        if (readerApi.checkCardOnReader()) {
             System.out.println("NFCPlugin----quickClrUpdateWriteNdefTag");
-            Toast.makeText(getContext(), "NFCPlugin----quickClrUpdateWriteNdefTag",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "NFCPlugin----quickClrUpdateWriteNdefTag", Toast.LENGTH_SHORT).show();
             //手动刷屏test
             readerApi.quickClrUpdateWriteNdefTag(NFTData, NFTData.length, 0, HighSpeed, invert, strNdef);
 
@@ -102,9 +102,9 @@ public class NFCPlugin extends Plugin {
 //        }
 //        System.out.println("NFCPlugin----ret=="+rets);
 //
-        }else{
+        } else {
             System.out.println("NFCPlugin----Tag isn't on the reader!");
-            Toast.makeText(getContext(), "Tag isn't on the reader!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Tag isn't on the reader!", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -118,6 +118,7 @@ public class NFCPlugin extends Plugin {
 
     /**
      * send task info message to NFC
+     *
      * @param call
      */
     @PluginMethod()
@@ -140,7 +141,7 @@ public class NFCPlugin extends Plugin {
         // send read NFC result event
 //        notifyListeners("readNFCResult", ret,true);
         // begin write NFC info event
-        notifyListeners("beginWriteNFC", ret,true);
+        notifyListeners("beginWriteNFC", ret, true);
         // send has written NFC info end event
 //        notifyListeners("writeNFCResult", ret,true);
 
@@ -148,7 +149,7 @@ public class NFCPlugin extends Plugin {
     }
 
 
-    private void initData(){
+    private void initData() {
         ProductInfor productInfor = new ProductInfor(proName, unit, spec,
                 grade, field, price, barCode, qrCode, lcdInch);
 
@@ -158,7 +159,7 @@ public class NFCPlugin extends Plugin {
         strNdef = proName + "\r\n" + unit + "\r\n" + spec + "\r\n" + grade
                 + "\r\n" + price + "\r\n" + barCode + "\r\n" + field + "\r\n"
                 + qrCode + "\r\n" + lcdInch;
-        System.out.println("NFCPlugin----strNdef="+strNdef);
+        System.out.println("NFCPlugin----strNdef=" + strNdef);
         if (mBackgroundBitmap == null) {
             mBackgroundBitmap = Bitmap.createBitmap(screenWidth, screenHeight,
                     Bitmap.Config.RGB_565);
@@ -183,7 +184,6 @@ public class NFCPlugin extends Plugin {
         NFTData = HalLcd_SetRAMValue(NFTData, 4736);
 
 
-
         // 创建�??个负责更新进度条的Handler
         mHandler = new Handler() {
             @Override
@@ -206,15 +206,15 @@ public class NFCPlugin extends Plugin {
                         System.out.println("NFCPlugin----ret==" + ret);
                         Toast.makeText(getContext(), "ret=" + ret, Toast.LENGTH_LONG).show();
                     }
-//               runOnUiThread(new Runnable() {
+//                    runOnUiThread(new Runnable() {
 //
-//                    @Override
-//                    public void run() {
-//                        // TODO Auto-generated method
-//                        Toast.makeText(getContext(),"发送完成!刷屏花费时间="+ readerApi.TotalTime + "ms", Toast.LENGTH_LONG).show();
+//                        @Override
+//                        public void run() {
+//                            // TODO Auto-generated method
+//                            Toast.makeText(getContext(), "发送完成!刷屏花费时间=" + readerApi.TotalTime + "ms", Toast.LENGTH_LONG).show();
 //
-//                    }
-//                });
+//                        }
+//                    });
                 }
             }
         };
