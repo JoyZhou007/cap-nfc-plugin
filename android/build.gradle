@@ -51,5 +51,5 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
     implementation files('lib/acssmc-1.1.4.jar')
     implementation files('lib/core-3.2.1.jar')
-    implementation files('lib/lhcz_ind_bl1.1.8.jar')
+    implementation files('lib/lhcz_ind_bl1.1.9_lib.jar')
 }
