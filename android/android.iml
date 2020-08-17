@@ -104,7 +104,9 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:core:1.2.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:monitor:1.2.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-idling-resource:3.2.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:C./personal/cap-nfc-plugin/android/lib/lhcz_ind_bl1.1.jar:unspecified@jar" level="project" />
-    <orderEntry type="module" module-name="capacitor-android" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D./Plugin/cap-nfc-plugin/android/lib/acssmc-1.1.4.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D./Plugin/cap-nfc-plugin/android/lib/core-3.2.1.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D./Plugin/cap-nfc-plugin/android/lib/lhcz_ind_bl1.2.0_lib.jar:unspecified@jar" level="project" />
+    <orderEntry type="module" module-name="cap-nfc-plugin-node_modules-@capacitor-capacitor-android~2" />
   </component>
 </module>
