@@ -2,4 +2,26 @@ R_DEF: Internal format may change without notice
 local
 id webview
 layout bridge_layout_main
+string Import
+string Product
+string antiColor
+string back
+string barcode
+string barcode_hint
+string choose_lcd
+string field
+string grade
+string lcd
+string manaual
 string my_string
+string price
+string priceVerifyBody
+string product_infor
+string product_name
+string qrcode
+string send_completely
+string send_fail
+string spec
+string speed
+string unit
+string update

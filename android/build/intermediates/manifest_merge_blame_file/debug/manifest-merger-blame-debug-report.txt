@@ -6,8 +6,38 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+8-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+9-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
 10
-11</manifest>
+11    <uses-feature android:name="android.hardware.usb.host" />
+11-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:4:5-62
+11-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:4:19-59
+12    <!-- Include next permission if you want to allow UIL to cache images on SD card -->
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:6:5-67
+13-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:6:22-64
+14    <uses-permission android:name="android.permission.NFC" />
+14-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:7:5-62
+14-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:7:22-59
+15    <uses-permission android:name="android.permission.VIBRATE" />
+15-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:8:5-66
+15-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:8:22-63
+16    <uses-permission android:name="android.permission.CAMERA" />
+16-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:9:5-65
+16-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:9:22-62
+17
+18    <uses-feature android:name="android.hardware.camera" />
+18-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:11:5-60
+18-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:11:19-57
+19    <uses-feature android:name="android.hardware.camera.autofocus" />
+19-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:12:5-70
+19-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:12:19-67
+20    <uses-feature
+20-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:13:5-15:35
+21        android:name="android.hardware.nfc"
+21-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:14:9-44
+22        android:required="true" />
+22-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:15:9-32
+23
+24</manifest>

@@ -1,57 +1,71 @@
 -- Merging decision tree log ---
 manifest
-<<<<<<< HEAD
-ADDED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-=======
-ADDED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
->>>>>>> 0daf8e1428d6de169fb01860390b8e6709e619e4
+ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
 	package
-		ADDED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml:3:7-44
-		INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-		INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:3:7-44
+		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
 	android:versionName
-<<<<<<< HEAD
-		INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-		ADDED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-		INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
+		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-		ADDED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-		INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-=======
-		INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-		ADDED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-		INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-	android:versionCode
-		INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-		ADDED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-5:14
-		INJECTED from C:\personal\cap-nfc-plugin\android\src\main\AndroidManifest.xml
->>>>>>> 0daf8e1428d6de169fb01860390b8e6709e619e4
+		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
+		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:13-71
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:13-71
+uses-feature#android.hardware.usb.host
+ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:4:5-62
+	android:name
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:4:19-59
+uses-permission#android.permission.INTERNET
+ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:6:5-67
+	android:name
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:6:22-64
+uses-permission#android.permission.NFC
+ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:7:5-62
+	android:name
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:7:22-59
+uses-permission#android.permission.VIBRATE
+ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:8:5-66
+	android:name
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:8:22-63
+uses-permission#android.permission.CAMERA
+ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:9:5-65
+	android:name
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:9:22-62
+uses-feature#android.hardware.camera
+ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:11:5-60
+	android:name
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:11:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:12:5-70
+	android:name
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:12:19-67
+uses-feature#android.hardware.nfc
+ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:13:5-15:35
+	android:required
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:15:9-32
+	android:name
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:14:9-44
 uses-sdk
-INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-		ADDED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-		INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-		ADDED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-		INJECTED from E:\develop\gitWork\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
+		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
