@@ -40,4 +40,11 @@
 22        android:required="true" />
 22-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:15:9-32
 23
-24</manifest>
+24    <application>
+24-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:17:7-19:21
+25        <activity android:name="com.nfc.plugin.NFCPlugin" />
+25-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:18:11-63
+25-->D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:18:21-60
+26    </application>
+27
+28</manifest>

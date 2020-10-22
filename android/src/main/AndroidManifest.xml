@@ -13,5 +13,9 @@
     <uses-feature
         android:name="android.hardware.nfc"
         android:required="true" />
+
+      <application>
+          <activity android:name="com.nfc.plugin.NFCPlugin" />
+      </application>
   </manifest>
   

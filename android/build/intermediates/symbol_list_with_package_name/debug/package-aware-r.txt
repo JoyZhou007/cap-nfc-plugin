@@ -1363,6 +1363,9 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable shape_circular
+drawable shape_circular_kong
+drawable shape_fillet
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1492,6 +1495,7 @@ id line1
 id line3
 id listMode
 id list_item
+id ll_states
 id masked
 id message
 id mini
@@ -1610,10 +1614,21 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id tv_gjnumber
+id tv_inspectioncategory
+id tv_number
+id tv_parttypemodel
+id tv_parttypeversion
+id tv_priority
+id tv_result
+id tv_taskstatus
+id tv_time
+id tv_year
 id unchecked
 id uniform
 id unlabeled
 id up
+id view_1
 id view_offset_helper
 id visible
 id webview
@@ -1700,6 +1715,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_bridge
+layout item_task_states
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
@@ -1738,6 +1754,8 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout task_card
+layout task_info
 layout test_action_chip
 layout test_design_checkbox
 layout test_reflow_chipgroup

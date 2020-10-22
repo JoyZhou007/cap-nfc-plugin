@@ -1,7 +1,25 @@
 R_DEF: Internal format may change without notice
 local
+drawable shape_circular
+drawable shape_circular_kong
+drawable shape_fillet
+id ll_states
+id tv_gjnumber
+id tv_inspectioncategory
+id tv_number
+id tv_parttypemodel
+id tv_parttypeversion
+id tv_priority
+id tv_result
+id tv_taskstatus
+id tv_time
+id tv_year
+id view_1
 id webview
 layout bridge_layout_main
+layout item_task_states
+layout task_card
+layout task_info
 string Import
 string Product
 string antiColor

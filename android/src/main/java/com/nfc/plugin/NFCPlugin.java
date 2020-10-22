@@ -3,8 +3,12 @@ package com.nfc.plugin;
 import android.Manifest;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.LHCZ_Ind.ReaderTransferApi;
@@ -15,6 +19,7 @@ import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
+import com.nfc.plugin.capnfcplugin.R;
 
 
 @NativePlugin(
@@ -68,12 +73,78 @@ public class NFCPlugin extends Plugin {
     String qrCode = "http://www.uswiot.cn";
     String lcdInch = "2.9";
 
+
+    ProductInfor productInfor;
+
     @PluginMethod()
     public void echo(PluginCall call) {
         String value = call.getString("value");
         JSObject ret = new JSObject();
         ret.put("value", value);
         call.resolve(ret);
+    }
+
+    @PluginMethod()
+    public void testEvent(PluginCall call) {
+        bridge.triggerWindowJSEvent("myCustomEvent", "{ 'dataKey': 'dataValue' }");
+        call.success();
+    }
+
+    /**
+     * send task info message to NFC
+     *
+     * @param call
+     */
+    @PluginMethod()
+    public void sendTaskInfo(final PluginCall call) {
+        String value = call.getString("taskInfo");
+        JSObject ret = new JSObject();
+        ret.put("taskInfo", value);
+
+        System.out.println("sendTaskInfo----start");
+        call.resolve(ret);
+
+
+        JSObject taskInfo = call.getObject("taskInfo", new JSObject());
+        String taskNumber = taskInfo.getString("TaskNumber");
+        String inspectionCategory = taskInfo.getString("InspectionCategory");
+        String partNumber = taskInfo.getString("PartNumber");
+
+
+        strNdef = taskNumber + "\r\n" + inspectionCategory + "\r\n" + partNumber + "\r\n" + grade
+                + "\r\n" + price + "\r\n" + barCode + "\r\n" + field + "\r\n"
+                + qrCode + "\r\n" + lcdInch;
+        System.out.println("NFCPlugin----strNdef=" + strNdef);
+
+        productInfor = new ProductInfor(taskNumber, inspectionCategory, partNumber,
+                grade, field, price, barCode, qrCode, lcdInch);
+
+        tagPriceView = new TagPriceView(getContext(), productInfor,
+                0x29);
+
+
+        if (mBackgroundBitmap == null) {
+            mBackgroundBitmap = Bitmap.createBitmap(screenWidth, screenHeight,
+                    Bitmap.Config.RGB_565);
+
+            canvas = new Canvas(mBackgroundBitmap);
+        }
+
+        tagPriceView.draw(canvas);
+
+        bmpUtils = new BmpUtils29();
+        // 24bitsBMP
+        whiteBlackBitmap = BmpUtils29.convertToBlackWhite(mBackgroundBitmap);
+
+
+        // BmpParse鐟欙絾鐎介崳锟�
+        bmpParse = BmpParse29.getInstance();
+
+        NFTData = bmpParse.bmpRAWData2NFCData(BmpUtils29
+                        .getBmpDotData(BmpUtils29.getBmpData(mBackgroundBitmap,
+                                BmpUtils29.BLACK_WHITE_COLOR)),
+                BmpUtils29.BLACK_WHITE_COLOR, BmpUtils29.REVERSE_COLOR);
+        NFTData = HalLcd_SetRAMValue(NFTData, 4736);
 
         //首先判断tag是否在读卡器上面，在读卡器上面就可以手动刷，否则提示标签不在读卡器上面
         if (readerApi.checkCardOnReader()) {
@@ -107,28 +178,6 @@ public class NFCPlugin extends Plugin {
             Toast.makeText(getContext(), "Tag isn't on the reader!", Toast.LENGTH_SHORT).show();
         }
 
-
-    }
-
-    @PluginMethod()
-    public void testEvent(PluginCall call) {
-        bridge.triggerWindowJSEvent("myCustomEvent", "{ 'dataKey': 'dataValue' }");
-        call.success();
-    }
-
-    /**
-     * send task info message to NFC
-     *
-     * @param call
-     */
-    @PluginMethod()
-    public void sendTaskInfo(final PluginCall call) {
-        String value = call.getString("taskInfo");
-        JSObject ret = new JSObject();
-        ret.put("taskInfo", value);
-
-        System.out.println("sendTaskInfo----start");
-        call.resolve(ret);
 
     }
 
@@ -333,4 +382,103 @@ public class NFCPlugin extends Plugin {
         }
         return szDataStr;
     }
+
+    public  Bitmap getViewBitmap(int layoutId) {
+
+        View view =  View.inflate(getContext(),R.layout.task_info, null);
+
+        int measuredWidth = View.MeasureSpec.makeMeasureSpec(screenWidth, View.MeasureSpec.EXACTLY);
+        int measuredHeight = View.MeasureSpec.makeMeasureSpec(screenHeight, View.MeasureSpec.AT_MOST);
+
+        LinearLayout ll_states = (LinearLayout) view.findViewById(R.id.ll_states);
+        TextView tv_priority = (TextView) view.findViewById(R.id.tv_priority);
+        TextView tv_parttypeversion = (TextView) view.findViewById(R.id.tv_parttypeversion);
+        TextView tv_time = (TextView) view.findViewById(R.id.tv_time);
+        TextView tv_year = (TextView) view.findViewById(R.id.tv_year);
+        TextView tv_result = (TextView) view.findViewById(R.id.tv_result);
+        TextView tv_taskstatus = (TextView) view.findViewById(R.id.tv_taskstatus);
+        TextView tv_inspectioncategory = (TextView) view.findViewById(R.id.tv_result);
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(),"fonts/wryh.ttf");
+
+        tv_priority.setTypeface(font);//设置字体
+        tv_parttypeversion.setTypeface(font);
+        tv_time.setTypeface(font);
+        tv_year.setTypeface(font);
+        tv_result.setTypeface(font);
+        tv_taskstatus.setTypeface(font);
+        tv_inspectioncategory.setTypeface(font);
+
+        ll_states.removeAllViews();
+        for (int i = 0; i < 6; i++) {
+            View cardstates =  View.inflate(getContext(),R.layout.item_task_states, null);
+//            View roomViews = getLayoutInflater().inflate(R.layout.item_task_states, null);
+            ll_states.addView(cardstates);
+            View view1 = cardstates.findViewById(R.id.view_1);
+            if(i<2){
+                view1.setBackground(getContext().getResources().getDrawable(R.drawable.shape_fillet));
+            }else{
+                view1.setBackground(getContext().getResources().getDrawable(R.drawable.shape_circular_kong));
+            }
+        }
+
+        view.measure(measuredWidth,measuredHeight);
+        view.layout(0 ,0, screenWidth, screenHeight);
+        view.buildDrawingCache();
+        Bitmap bitmap = view.getDrawingCache();
+
+        return bitmap;
+
+    }
+
+    public  Bitmap getViewBitmapTaskCard(int layoutId) {
+
+        View view =  View.inflate(getContext(),R.layout.task_card, null);
+//        View view =  getLayoutInflater().inflate(layoutId, null);
+        int measuredWidth = View.MeasureSpec.makeMeasureSpec(screenWidth, View.MeasureSpec.EXACTLY);
+        int measuredHeight = View.MeasureSpec.makeMeasureSpec(screenHeight, View.MeasureSpec.AT_MOST);
+
+        TextView tv_priority = (TextView) view.findViewById(R.id.tv_priority);
+        TextView tv_parttypeversion = (TextView) view.findViewById(R.id.tv_parttypeversion);
+        TextView tv_parttypemodel = (TextView) view.findViewById(R.id.tv_parttypemodel);
+        LinearLayout ll_states = (LinearLayout) view.findViewById(R.id.ll_states);
+        TextView tv_number = (TextView) view.findViewById(R.id.tv_number);
+        TextView tv_gjnumber = (TextView) view.findViewById(R.id.tv_gjnumber);
+        TextView tv_result = (TextView) view.findViewById(R.id.tv_result);
+        TextView tv_taskstatus = (TextView) view.findViewById(R.id.tv_taskstatus);
+        TextView tv_inspectioncategory = (TextView) view.findViewById(R.id.tv_result);
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(),"fonts/wryh.ttf");
+
+        tv_priority.setTypeface(font);//设置字体
+        tv_parttypeversion.setTypeface(font);
+        tv_parttypemodel.setTypeface(font);
+        tv_number.setTypeface(font);
+        tv_gjnumber.setTypeface(font);
+        tv_result.setTypeface(font);
+        tv_taskstatus.setTypeface(font);
+        tv_inspectioncategory.setTypeface(font);
+
+
+        ll_states.removeAllViews();
+        for (int i = 0; i < 6; i++) {
+            View cardstates =  View.inflate(getContext(),R.layout.item_task_states, null);
+//            View roomViews = getLayoutInflater().inflate(R.layout.item_task_states, null);
+            ll_states.addView(cardstates);
+            View view1 = cardstates.findViewById(R.id.view_1);
+            if(i<2){
+                view1.setBackground(getContext().getResources().getDrawable(R.drawable.shape_fillet));
+            }else{
+                view1.setBackground(getContext().getResources().getDrawable(R.drawable.shape_circular_kong));
+            }
+        }
+
+        view.measure(measuredWidth,measuredHeight);
+        view.layout(0 ,0, screenWidth, screenHeight);
+        view.buildDrawingCache();
+        Bitmap bitmap = view.getDrawingCache();
+
+        return bitmap;
+
+    }
+
+
 }

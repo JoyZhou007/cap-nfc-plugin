@@ -1,23 +1,23 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
-INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
-INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
-INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
-INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
-INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
-INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
+ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-20:14
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-20:14
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-20:14
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-20:14
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-20:14
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-20:14
+INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-20:14
 	package
 		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:3:7-44
 		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
 		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-20:14
 		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
-		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-16:14
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:3-20:14
 		INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:2:13-71
@@ -55,6 +55,12 @@ ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:13:5-15
 		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:15:9-32
 	android:name
 		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:14:9-44
+application
+ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:17:7-19:21
+activity#com.nfc.plugin.NFCPlugin
+ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:18:11-63
+	android:name
+		ADDED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml:18:21-60
 uses-sdk
 INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Plugin\cap-nfc-plugin\android\src\main\AndroidManifest.xml
