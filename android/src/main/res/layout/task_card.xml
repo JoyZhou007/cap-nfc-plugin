@@ -4,8 +4,7 @@
     android:layout_height="wrap_content"
     android:background="#ffffff"
     android:orientation="vertical"
-    android:paddingRight="5dip"
-    android:paddingBottom="2dip">
+    android:paddingRight="5dip">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -14,29 +13,30 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginLeft="3dip">
+            android:layout_marginLeft="3dip"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tv_priority"
                 android:layout_width="wrap_content"
                 android:layout_height="0dip"
-                android:layout_weight="1"
-                android:paddingTop="5dip"
-                android:gravity="center"
                 android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="5dip"
                 android:text="优先级"
                 android:textColor="#000000"
-                android:textSize="6sp"
-                android:textStyle="bold" />
+                android:textSize="6sp" />
 
             <TextView
                 android:id="@+id/tv_inspectioncategory"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="送检类型"
+                android:text="抽检"
+                android:gravity="center"
+                android:layout_marginTop="2dip"
                 android:textColor="#000000"
-                android:textSize="4sp" />
+                android:textSize="5sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -56,7 +56,7 @@
                     android:id="@+id/tv_parttypemodel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="零件型号"
+                    android:text="001"
                     android:textColor="#000000"
                     android:textSize="5sp" />
 
@@ -65,7 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="2dip"
-                    android:text="零件版本"
+                    android:text="V002"
                     android:textColor="#000000"
                     android:textSize="5sp" />
             </LinearLayout>
@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dip"
-                android:text="工件编号"
+                android:text="20200112005"
                 android:textColor="#000000"
                 android:textSize="5sp" />
 
@@ -85,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dip"
-                android:text="任务编号"
+                android:text="V003"
                 android:textColor="#000000"
                 android:textSize="5sp" />
         </LinearLayout>
@@ -116,25 +116,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="2dip"
-        android:layout_marginTop="4dip"
+        android:layout_marginTop="5dip"
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/ll_states"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ll_states"
-            android:layout_centerVertical="true">
-
-
+            android:layout_centerVertical="true"
+            android:layout_marginTop="1dip"
+            android:orientation="horizontal">
         </LinearLayout>
 
         <TextView
             android:id="@+id/tv_taskstatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dip"
             android:layout_alignParentRight="true"
-            android:text="已提交"
+            android:layout_marginRight="5dip"
+            android:text="任务状态"
             android:textColor="#000000"
             android:textSize="4sp" />
     </RelativeLayout>
